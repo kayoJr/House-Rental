@@ -76,6 +76,86 @@ header{
         }
     }
 }
-.test{
-    height: 200vh;
+
+.premium{
+    margin: 2rem auto;
+    &-houses{
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 2rem;
+        overflow: scroll;
+        // .house{
+        //     background: #fff;
+        //     position: relative;
+        //     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+        //     margin-bottom: 2rem;
+        //     img{
+        //         transition: all 500ms cubic-bezier(0.39, 0.575, 0.565, 1);
+        //         &:hover{
+        //             transform: scale(1.05);         
+        //         }
+        //     }
+        //     .price{
+        //         position: absolute;
+        //         top: 5%;
+        //         right: 5%;
+        //         p{
+        //             background-color: $blue;
+        //             display: inline-block;
+        //             padding: 10px;
+        //             color: #fff;
+        //             font-weight: 500;
+        //         }
+        //     }
+        //     .detail{
+        //         padding: 1rem 0;
+        //         margin-left: 5%;
+        //         p:last-child{
+        //             margin-top: 1rem;
+        //         }
+        //     }
+        // }
+        .house{
+            background-color: #fff;
+            position: relative;
+            box-shadow: 10px 10px 15px rgba($color: #000, $alpha: 0.25);
+            margin-bottom: 1.5rem;
+            overflow-y: hidden;
+            img{
+                height: max-content;
+            }
+            .price{
+                position: absolute;
+                top: 5%;
+                right: 5%;
+                p{
+                    background-color: $blue;
+                    display: inline-block;
+                    padding: 10px;
+                    color: #fff;
+                    font-weight: 500;
+                }
+            }
+            .detail{
+                position: absolute;
+                width: 100%;
+                padding: 1rem 0;
+                left: 0;
+                background-color: rgba($color: $blue, $alpha: 0.9);
+                transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                p{
+                    margin-left: 5%;
+                    color: #fff;
+                }
+                p:last-child{
+                    margin-top: 1rem;
+                }
+            }
+            &:hover{
+                .detail{
+                    transform: translateY(-5rem);
+                }
+            }
+        }
+    }
 }

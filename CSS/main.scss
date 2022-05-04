@@ -52,7 +52,6 @@ header {
         background-color: $blue;
         display: grid;
         align-items: center;
-
         form {
             padding: 0.5rem 0;
 
@@ -99,6 +98,118 @@ header {
 }
 
 .recent-house {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 2rem;
+}
+@media (min-width: 476px){
+    .mob-nav, .mobile{
+        display: none !important;
+    }
+}
+@media (max-width: 475px){
+    .desktop nav{
+        display: none;
+    }
+
+    .mobile{
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem;
+        }
+    }
+    .desktop .search{
+        display: block;
+        background-color: $dark-grey;
+        form{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+            input[type="submit"]{
+                grid-column: 1/ span 2;
+                background-color: $blue;
+                color: #fff;
+            }
+            input[type="number"],
+            select {
+                width: 100%;
+                margin-right: 0rem;
+            }
+        }
+    }
+    .container{
+        max-width: 350px; 
+    }
+    .premium .house{
+        overflow-y: visible;
+        margin-bottom: 5rem;
+        .detail{
+            background-color: #fff;
+            p{
+                color: #000;
+            }
+        }
+        &:hover{
+            .detail{
+                transform: translateY(0);
+            }
+        }
+    }
+    .recent .house{
+        overflow-y: visible;
+        margin-bottom: 5rem;
+        position: relative;
+        img{
+            width: 100%;
+        }
+        .detail{
+            background-color: #fff;
+            p{
+                color: #000;
+            }
+        }
+        &:hover{
+            .detail{
+                transform: translateY(0);
+            }
+        }
+    }
+    .mob-nav{
+        position: fixed;
+        background: #fff;
+        width: 100%;
+        height: 100vh;
+        z-index: 100;
+        top: 0;
+        display: none;
+        .top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2rem;
+        }
+        .links{
+            display: grid;
+            place-items: center;
+            margin-top: 50%;
+            ul{
+                li{
+                    border-bottom: 1px solid #000;
+                    margin-top: 2rem;
+                    padding: 1rem 3rem;
+                    text-align: center;
+                    a{
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+    .txt-bg{
+        background-color: $blue;
+    }
+    footer{
+        font-size: 1rem;
+    }
 }

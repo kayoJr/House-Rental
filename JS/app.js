@@ -1,6 +1,7 @@
 window.onscroll = () =>{scrollFunction()};
 
 var navbar = document.getElementById("search");
+
 var sticky = navbar.offsetTop;
 function scrollFunction() {
     if (window.pageYOffset >= sticky) {
@@ -19,12 +20,14 @@ var second_navbar = document.getElementById('second-nav');
 ham.addEventListener("click", ()=>{
         menu.style.display = "block"
      //   body.style.display = "none"
-})
-
-close.forEach(function (exit) {
+     navbar.style.display = "none"
+    })
+    
+    close.forEach(function (exit) {
         exit.addEventListener("click", () => {
             menu.style.display = "none";
             second_navbar.style.display = "none";
+            navbar.style.display = "block"
         });
     })
 

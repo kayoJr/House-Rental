@@ -196,7 +196,66 @@ header {
         }
     }
 }
+.post{
+    form{
+        width: fit-content;
+        label, input{
+            display: block;
+        }
+        select{
+            display: block;
+            width: 100%;
+        }
+        .title{
+            input{
+                width: 100%;
+            }
+        }
+        .others{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2rem;
+            p{
+                text-align: center;
+                margin-top: 2rem;
+                a{
+                    color: $blue;
+                    font-weight: 600;
+                }
+            }
+        }
+        .top{
+            display: grid;
+            grid-template-columns: repeat(3, 20rem);
+            div{
+                width: max-content;
+            }
+        }
+        textarea, input[type = 'submit']{
+            width: 100%;
+        }
+    }
+}
 
+.login{
+    form{
+        input{
+            width: 100%;
+        }
+        .btn-secondary{
+            border: 1px solid $dark-grey;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding: 1rem 0;
+            font-weight: 600;
+        }
+        .password{
+            a{
+                float: right;
+            }
+        }
+    }
+}
 
 
 @media (min-width: 476px){
@@ -350,6 +409,33 @@ header {
         }
     }
 
+    .post{
+        .cont-repo{
+            .others{
+                grid-template-columns: 1fr;
+                p{
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                }
+            }
+            .top{
+                grid-template-columns: 15rem;
+            }
+        }
+        .detail{
+            overflow-x: hidden;
+            .btn{
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .login{
+        margin-bottom: 5rem;
+        h1{
+            font-size: 1rem;
+        }
+    }
 
 
     .report-footer{

@@ -81,8 +81,9 @@ ul, a {
   font-size: 1.2rem;
 }
 
-.cont-repo input, .cont-repo select {
-  padding: .5rem;
+.cont-repo input, .cont-repo select, .cont-repo label {
+  padding: .5rem 0;
+  display: block;
 }
 
 .cont-repo label {
@@ -404,6 +405,76 @@ header .sticky form select {
   border-color: #fff;
 }
 
+.post form {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.post form label, .post form input {
+  display: block;
+}
+
+.post form select {
+  display: block;
+  width: 100%;
+}
+
+.post form .title input {
+  width: 100%;
+}
+
+.post form .others {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+
+.post form .others p {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.post form .others p a {
+  color: #45B4E8;
+  font-weight: 600;
+}
+
+.post form .top {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (20rem)[3];
+      grid-template-columns: repeat(3, 20rem);
+}
+
+.post form .top div {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.post form textarea, .post form input[type='submit'] {
+  width: 100%;
+}
+
+.login form input {
+  width: 100%;
+}
+
+.login form .btn-secondary {
+  border: 1px solid #5B5B5B;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  font-weight: 600;
+}
+
+.login form .password a {
+  float: right;
+}
+
 @media (min-width: 476px) {
   .mob-nav, .mobile {
     display: none !important;
@@ -568,6 +639,30 @@ header .sticky form select {
   .safty .boxes .box:last-child ul {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+  .post .cont-repo .others {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .post .cont-repo .others p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .post .cont-repo .top {
+    -ms-grid-columns: 15rem;
+        grid-template-columns: 15rem;
+  }
+  .post .detail {
+    overflow-x: hidden;
+  }
+  .post .detail .btn {
+    font-size: 1rem;
+  }
+  .login {
+    margin-bottom: 5rem;
+  }
+  .login h1 {
+    font-size: 1rem;
   }
   .report-footer {
     position: relative;

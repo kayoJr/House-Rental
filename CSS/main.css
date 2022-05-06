@@ -22,6 +22,7 @@ ul, a {
   border-radius: 5px;
   color: #fff;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -38,13 +39,13 @@ ul, a {
   font-size: 1rem;
   -webkit-transition: all 300ms;
   transition: all 300ms;
+  cursor: pointer;
 }
 
 .btn-secondary:hover {
   border: none;
   background-color: #5B5B5B;
   color: #fff;
-  cursor: pointer;
 }
 
 .container {
@@ -57,11 +58,40 @@ ul, a {
   padding: .6rem 0;
   color: #fff;
   text-align: center;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .txt-bg h1 {
   font-weight: 400;
+}
+
+.cont-repo {
+  width: 50%;
+  margin: 2rem auto;
+  display: -ms-grid;
+  display: grid;
+  background: #fff;
+  padding: 2rem 3rem 0 3rem;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+.cont-repo input, .cont-repo textarea, .cont-repo select {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.cont-repo input, .cont-repo select {
+  padding: .5rem;
+}
+
+.cont-repo label {
+  font-size: 1.2rem;
+}
+
+.cont-repo .btn {
+  padding: 16px 30px;
+  letter-spacing: 2px;
 }
 
 .premium, .recent {
@@ -259,6 +289,121 @@ header .sticky form select {
   grid-gap: 2rem;
 }
 
+.service p {
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+
+.service p a {
+  color: #000;
+  font-weight: 600;
+}
+
+.service .warning {
+  color: #f00;
+  font-weight: 600;
+}
+
+.service ul {
+  list-style-type: disc;
+  margin-left: 2rem;
+}
+
+.service ul li {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.service .boxes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
+  margin-bottom: 2rem;
+}
+
+.service .boxes .box {
+  margin: 1rem 0;
+}
+
+.service .boxes .image {
+  background-color: #fff;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+  padding: 3rem;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.service .boxes .detail p {
+  line-height: 2rem;
+}
+
+.report-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.safty .boxes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;
+  margin-top: 2rem;
+}
+
+.safty .boxes .box {
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.safty .boxes .box ul {
+  list-style: disc;
+}
+
+.safty .boxes .box ul li {
+  margin-top: 1rem;
+}
+
+.safty .boxes .box h2 {
+  border-bottom: 1px solid #000;
+  padding-bottom: .5rem;
+  margin-bottom: 1rem;
+}
+
+.safty .boxes .box:last-child {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/span 2;
+}
+
+.safty .boxes .box:last-child h2 {
+  text-align: center;
+}
+
+.safty .boxes .box:last-child ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+.safty .boxes .black {
+  background: #5B5B5B !important;
+  color: #fff;
+}
+
+.safty .boxes .black h2 {
+  border-color: #fff;
+}
+
 @media (min-width: 476px) {
   .mob-nav, .mobile {
     display: none !important;
@@ -377,6 +522,55 @@ header .sticky form select {
   }
   .txt-bg {
     background-color: #45B4E8;
+  }
+  .service .boxes {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+  .service .boxes .box {
+    margin: 0;
+  }
+  .service .boxes .first {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+  .service .boxes .second {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .service .boxes .third {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .service .boxes .fourth {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .cont-repo {
+    width: 100%;
+  }
+  .report form {
+    margin-bottom: 10rem !important;
+  }
+  .safty .boxes {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+  }
+  .safty .boxes .box:last-child {
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  .safty .boxes .box:last-child ul {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .report-footer {
+    position: relative;
   }
   footer {
     font-size: 1rem;

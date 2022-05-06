@@ -20,7 +20,7 @@ var second_navbar = document.getElementById('second-nav');
 ham.addEventListener("click", ()=>{
         menu.style.display = "block"
      //   body.style.display = "none"
-     navbar.style.display = "none"
+        navbar.style.display = "none"
     })
     
     close.forEach(function (exit) {

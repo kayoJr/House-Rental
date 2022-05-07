@@ -290,6 +290,10 @@ header .sticky form select {
   grid-gap: 2rem;
 }
 
+.recent-house .house img {
+  width: 100%;
+}
+
 .service p {
   font-size: 1.2rem;
   padding: 1rem 0;
@@ -473,6 +477,201 @@ header .sticky form select {
 
 .login form .password a {
   float: right;
+}
+
+.details {
+  margin-top: 2rem;
+}
+
+.details .title-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.details .title-price .price {
+  background: #5B5B5B;
+  padding: 1rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 6px;
+}
+
+.details .type {
+  background-color: #5B5B5B;
+  color: #fff;
+  display: inline-block;
+  padding: .5rem 1rem;
+}
+
+.details .loc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 0;
+}
+
+.details .loc .location {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.details .image-personal {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+.details .image-personal .image {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/ span 2;
+}
+
+.details .image-personal .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.details .image-personal .personal {
+  background: #fff;
+  padding: 1rem 0;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+.details .image-personal .personal .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 1.5rem;
+}
+
+.details .image-personal .personal .txt-bg {
+  padding: 1rem 0;
+}
+
+.details .image-personal .personal .txt-bg h3 {
+  text-align: left;
+  margin-left: 2rem;
+}
+
+.details .image-personal .personal .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 2rem;
+}
+
+.details .image-personal .personal .social a {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.details .image-personal .personal .social a img {
+  margin-right: .5rem;
+}
+
+.details .image-personal .personal .social .whatsapp {
+  background-color: #1DD03F;
+}
+
+.details .image-personal .personal .social .telegram {
+  background-color: #1C98DC;
+}
+
+.details .image-personal .personal .social .phone {
+  background-color: #CC0404;
+}
+
+.details .image-personal .personal .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 3rem 2rem;
+}
+
+.details .image-personal .personal .links a {
+  color: #f00;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.details .desc-detail {
+  margin: 2rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60% 40%;
+      grid-template-columns: 60% 40%;
+  grid-gap: 2rem;
+}
+
+.details .desc-detail h3 {
+  border-bottom: 1px solid;
+  padding-bottom: .5rem;
+  margin-bottom: 1rem;
+}
+
+.details .desc-detail .desc {
+  background-color: #fff;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+}
+
+.details .desc-detail .desc p {
+  padding: 1rem 0;
+  line-height: 34px;
+}
+
+.details .desc-detail .detail {
+  background-color: #5B5B5B;
+  color: #fff;
+  padding: 2rem;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+.details .desc-detail .detail ul {
+  padding: 1rem 0;
+}
+
+.details .desc-detail .detail ul li {
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 @media (min-width: 476px) {
@@ -663,6 +862,28 @@ header .sticky form select {
   }
   .login h1 {
     font-size: 1rem;
+  }
+  .details .image-personal {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .details .image-personal .image {
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  .desc-detail {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+  }
+  .desc-detail .desc {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .desc-detail .detail {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
   }
   .report-footer {
     position: relative;

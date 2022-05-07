@@ -100,6 +100,11 @@ header {
 .recent-house {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 2rem;
+    .house{
+        img{
+            width: 100%;
+        }
+    }
 }
 
 .service{
@@ -252,6 +257,135 @@ header {
         .password{
             a{
                 float: right;
+            }
+        }
+    }
+}
+
+.details{
+    margin-top: 2rem;
+    .title-price{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .price{
+            background: $dark-grey;
+            padding: 1rem;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 6px;
+        }
+    }
+    .type{
+        background-color: $dark-grey;
+        color: #fff;
+        display: inline-block;
+        padding: .5rem 1rem;
+    }
+    .loc{
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+        .location{
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+    }
+    .image-personal{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+        .image{
+            grid-column: 1/ span 2;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .personal{
+            background: #fff;
+            padding: 1rem 0;
+            box-shadow: 10px 10px 15px rgba($color: #000000, $alpha: 0.25);
+            .top{
+                display: flex;
+                align-items: center;
+                margin-left: 1.5rem;
+            }
+            .txt-bg{
+                padding: 1rem 0;
+                h3{
+                    text-align: left;
+                    margin-left: 2rem;
+                }
+            }
+            .social{
+                display: flex;
+                flex-direction: column;
+                margin: 0 2rem;
+                a{
+                    padding: 1rem 2rem;
+                    margin-bottom: 1rem;
+                    color: #fff;
+                    font-size: 1.2rem;
+                    img{
+                        margin-right: .5rem;
+                    }
+                }
+                .whatsapp{
+                    background-color: $whatsapp;
+                }
+                .telegram{
+                    background-color: $telegram;
+                }
+                .phone{
+                    background-color: $number;
+                }
+            }
+            .links{
+                display: flex;
+                flex-direction: column;
+                margin: 3rem 2rem;
+                a{
+                    color: #f00;
+                    font-size: 1.2rem;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+    .desc-detail{
+        margin: 2rem 0;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-gap: 2rem;
+        h3{
+            border-bottom: 1px solid;
+            padding-bottom: .5rem;
+            margin-bottom: 1rem;
+        }
+        .desc{
+            background-color: #fff;
+            box-shadow: 10px 10px 15px rgba($color: #000000, $alpha: 0.25);
+            padding: 2rem;
+            p{
+                padding: 1rem 0;
+                line-height: 34px;
+            }
+        }
+        .detail{
+            background-color: $dark-grey;
+            color: #fff;
+            padding: 2rem;
+            box-shadow: 10px 10px 15px rgba($color: #000000, $alpha: 0.25);
+            ul{
+                padding: 1rem 0;
+                li{
+                    margin-bottom: 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
             }
         }
     }
@@ -437,6 +571,23 @@ header {
         }
     }
 
+    .details{
+        .image-personal{
+            grid-template-columns: 1fr;   
+            .image{
+                grid-column: 1;
+            }
+        }
+    }
+    .desc-detail{
+        grid-template-columns: 1fr !important;
+        .desc{
+            order: 1;
+        }
+        .detail{
+            order: 0;
+        }
+    }
 
     .report-footer{
         position: relative;

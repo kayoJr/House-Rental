@@ -295,7 +295,6 @@ header .sticky form select {
 
 .premium-house::-webkit-scrollbar-thumb {
   background-color: #45B4E8;
-  cursor: pointer;
 }
 
 .recent-house {

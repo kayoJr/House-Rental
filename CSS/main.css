@@ -281,7 +281,21 @@ header .sticky form select {
 .premium-house {
   grid-auto-flow: column;
   grid-gap: 2rem;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.premium-house::-webkit-scrollbar {
+  height: 20px;
+}
+
+.premium-house::-webkit-scrollbar-track {
+  background-color: #5B5B5B;
+}
+
+.premium-house::-webkit-scrollbar-thumb {
+  background-color: #45B4E8;
+  cursor: pointer;
 }
 
 .recent-house {

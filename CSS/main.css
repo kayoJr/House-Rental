@@ -157,6 +157,10 @@ ul, a {
           transform: translateY(-5rem);
 }
 
+.active {
+  background-color: #45B4E8;
+}
+
 footer {
   background-color: #45B4E8;
   padding: 1rem 0;

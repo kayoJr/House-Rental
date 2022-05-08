@@ -1,0 +1,93 @@
+@import "./variables";
+@import "./utility";
+@import "./table";
+
+
+.panel{
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-gap: 2rem;
+    position: relative;
+}
+aside{
+    background-color: $dark-grey;
+    position: sticky;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    .logo{
+        text-align: center;
+        margin: 2rem 0;
+    }
+    ul{
+        margin: 5rem 0;
+        li{
+            margin: 2rem 0;
+            text-align: left;
+            padding: 1rem 0;
+            transition: all 300ms;
+            a{
+                margin: 0 3rem;
+                color: #fff;
+                font-size: 1.2rem;
+            }
+            &:hover{
+                background-color: $blue;
+            }
+        }
+    }
+}
+
+main{
+    .top{
+        background-color: #fff;
+        padding: 2rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+    .form{
+        width: fit-content;
+        background-color: #fff;
+        box-shadow: 10px 10px 15px rgba($color: #000000, $alpha: 0.25);
+        display: grid;
+        place-items: center;
+        margin: 0 auto;
+        .form-elements{
+            display: grid;
+            grid-template-columns: repeat(2, 30rem);
+            place-items: center;
+            padding: 2rem 0;
+            div{
+                margin: 1rem 0;
+            }
+            label, input{
+                display: block;
+                font-size: 1.2rem;
+                margin-bottom: .5rem;
+            }
+            input{
+                padding: .5rem .5rem;
+            }
+        }
+        .btn{
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .table{
+        background-color: #fff;
+        margin: 0 auto;
+    }
+    .txt-bg{
+        width: 100%;
+    }
+    .location,
+    .price{
+        input{
+            width: 100%;
+        }
+    }
+}
+
+

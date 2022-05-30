@@ -24,10 +24,10 @@
                 <img src="./IMAGE/logo2 1.png" alt="logo">
             </div>
             <ul>
-                <li class="active"><a href="./user_profile.html">My Profile</a></li>
-                <li><a href="./properties.html">Properties</a></li>
-                <li><a href="./post-from-panel.html">Post</a></li>
-                <li><a href="./logout.html">Logout</a></li>
+                <li class="active"><a href="./user_profile.php">My Profile</a></li>
+                <li><a href="./properties.php">Properties</a></li>
+                <li><a href="./post-from-panel.php">Post</a></li>
+                <li><a href="./logout.php">Logout</a></li>
             </ul>
         </aside>
         <main>

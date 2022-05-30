@@ -23,9 +23,9 @@
         </div>
         <div class="links">
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="services.html">OUR SERVICES</a></li>
-                <li><a href="contact.html">CONTACT US</a></li>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="services.php">OUR SERVICES</a></li>
+                <li><a href="contact.php">CONTACT US</a></li>
             </ul>
         </div>
     </div>
@@ -36,10 +36,10 @@
         </div>
         <div class="links">
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="login.html">LOGIN</a></li>
-                <li><a href="signup.html">CREATE ACCOUNT</a></li>
-                <li><a href="post.html">POST</a></li>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="login.php">LOGIN</a></li>
+                <li><a href="signup.php">CREATE ACCOUNT</a></li>
+                <li><a href="post.php">POST</a></li>
             </ul>
         </div>
     </div>
@@ -58,14 +58,14 @@
                         <img src="./IMAGE/logo2 1.png" alt="Logo">
                     </div>
                     <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="services.html">OUR SERVICES</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="index.php">HOME</a></li>
+                        <li><a href="services.php">OUR SERVICES</a></li>
+                        <li><a href="contact.php">CONTACT</a></li>
                     </ul>
                 </div>
                 <div class="right-section">
-                    <a href="login.html"><img src="./IMAGE/ooui_user-avatar.png" alt="Avatar"></a> 
-                    <a class="btn" href="post.html">POST</a>
+                    <a href="login.php"><img src="./IMAGE/ooui_user-avatar.png" alt="Avatar"></a> 
+                    <a class="btn" href="post.php">POST</a>
                 </div>
             </div>
         </nav>
@@ -98,7 +98,7 @@
                 <h1>SEARCH RESULTS</h1>
             </div>
             <div class="houses recent-house">
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -158,7 +158,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -182,7 +182,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -194,7 +194,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -206,7 +206,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -218,7 +218,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -242,7 +242,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -254,7 +254,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">
@@ -266,7 +266,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./detail.html">
+                <a href="./detail.php">
                     <div class="house">
                         <img src="./IMAGE/house.png" alt="house">
                         <div class="price">

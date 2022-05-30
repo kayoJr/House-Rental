@@ -1,6 +1,9 @@
+<?php
+require_once './INCLUDES/db.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="theme-color" content="#45B4E8">
@@ -94,7 +97,15 @@
 
     <section class="login signup">
         <div class="container">
-        <form action="" class="cont-repo">
+        <form action="./INCLUDES/signup.php" method="POST" class="cont-repo">
+                <div class="feedback">
+                <p class="error">   
+                <?php 
+                $msg = @$_REQUEST['msg'];
+                echo $msg;
+                ?>
+                </p> 
+                </div>
                 <div class="txt-bg">
                     <h1>CREATE ACCOUNT</h1>
                 </div>
@@ -104,7 +115,7 @@
                 </div>
                 <div>
                     <label for="lname">Last Name</label>
-                    <input type="text" name="lnam" id="lname" required>
+                    <input type="text" name="lname" id="lname" required>
                 </div>
                 <div>
                     <label for="phone">Phone</label>
@@ -122,7 +133,7 @@
                     <label for="conf-pass">Confirm Password</label>
                     <input type="password" name="conf-pass" id="conf-pass">
                 </div>
-                <input type="submit" value="Sign Up" class="btn">
+                <input type="submit" value="Sign Up" name="signup" class="btn">
                 <a href="login.php" class="btn-secondary">Login</a>
             </div>
         </form>

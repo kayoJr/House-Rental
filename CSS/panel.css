@@ -169,6 +169,20 @@ footer {
   font-size: 1.2rem;
 }
 
+.feedback {
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.feedback .error {
+  color: #f00;
+}
+
+.feedback .success {
+  color: #080;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -338,6 +352,20 @@ footer {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
+}
+
+.feedback {
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.feedback .error {
+  color: #f00;
+}
+
+.feedback .success {
+  color: #080;
 }
 
 .table {

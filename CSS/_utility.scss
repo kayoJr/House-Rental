@@ -169,3 +169,14 @@ footer{
     color: #fff;
     font-size: 1.2rem;
 }
+.feedback{
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    .error{
+        color: #f00;
+    }
+    .success{
+        color: #080;
+    }
+}

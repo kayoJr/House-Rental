@@ -27,7 +27,7 @@
                 <li class="active"><a href="./admin-acc.php">My Profile</a></li>
                 <li><a href="./admin-properties.php">Properties</a></li>
                 <li><a href="./users.php">Users</a></li>
-                <li><a href="./logout.php">Logout</a></li>
+                <li><a href="./INCLUDES/logout.php">Logout</a></li>
             </ul>
         </aside>
         <main>

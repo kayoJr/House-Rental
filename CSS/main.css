@@ -169,6 +169,20 @@ footer {
   font-size: 1.2rem;
 }
 
+.feedback {
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.feedback .error {
+  color: #f00;
+}
+
+.feedback .success {
+  color: #080;
+}
+
 header nav .nav-items {
   display: -webkit-box;
   display: -ms-flexbox;

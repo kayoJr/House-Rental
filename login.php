@@ -1,6 +1,9 @@
+<?php
+require_once './INCLUDES/db.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="theme-color" content="#45B4E8">
@@ -94,7 +97,21 @@
 
     <section class="login">
         <div class="container">
-        <form action="" class="cont-repo">
+        <form action="./INCLUDES/login.php" class="cont-repo" method="POST">
+            <div class="feedback">
+            <p class="success">   
+                <?php 
+                $msg = @$_REQUEST['msg'];
+                echo $msg;
+                ?>
+                </p> 
+            <p class="error">   
+                <?php 
+                $err = @$_REQUEST['err'];
+                echo $err;
+                ?>
+                </p> 
+            </div>
                 <div class="txt-bg">
                     <h1>LOGIN TO CREATE LISTING</h1>
                 </div>
@@ -107,7 +124,7 @@
                     <input type="password" name="password" id="password" required>
                     <a href="#">Forget Password?</a>
                 </div>
-                <input type="submit" value="Login" class="btn">
+                <input type="submit" value="Login" class="btn" name="login">
                 <a href="signup.php" class="btn-secondary">Create Account</a>
             </div>
         </form>

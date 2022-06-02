@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat;
+}
+body{
+    background: linear-gradient(to right, #82a0fd, #db82eb) no-repeat;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+.container{
+    width: 90%;
+    height: 90%;
+    margin: 3rem auto;
+    background: rgba( 255, 255, 255, 0.14 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 2rem;
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;    
+        margin: 0 5rem;  
+        .logo{
+            img{
+                width: 50%;
+            }
+        }
+        .personal-info{
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            padding: 0 1rem;
+            h2{
+                text-align: center;
+                background-color: #fff;
+                padding: 1rem;
+                border-radius: 16px;
+                text-transform: uppercase;
+            }
+            .avatar{
+                width: 6rem;
+                height: 6rem;
+                border-radius: 50%;
+                display: grid;
+                align-items: center;
+                position: relative;
+                img{
+                    width: 60%;
+                    position: absolute;
+                    top: 1rem;
+                    right: 1.3rem;
+                }
+            }
+        }
+    }
+    .main{
+        margin: 2rem auto;
+        display: grid;
+        place-items: center;
+        .boxes{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5rem;
+            .box{
+                background: #fff;
+                width: 15rem;
+                height: 10rem;
+                border-radius: 16px;
+                box-shadow: 5px 5px 20px #eee;
+                display: grid;
+                place-items: center;
+                cursor: pointer;
+                transition: all .4s ease-out;
+                &:hover{
+                    transform: translateY(-10px);
+                    box-shadow: 5px 5px 20px rgb(189, 189, 189);
+                }
+                button{
+                    background: none;
+                    outline: none;
+                    border: none;
+                    font-size: 1.4rem;
+                }
+                &:nth-child(2){
+                    cursor: not-allowed;
+                }
+                &:nth-child(1){
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+    .forms{
+        margin-top: 5rem;
+        display: grid;
+        place-items: center;
+        #deposit{
+            display: none;
+        }
+        #withdraw{
+            display: none;
+        }
+        #send{
+            display: block;
+        }
+        form{
+            background: #fff;
+            width: 25rem;
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            box-shadow: 5px 5px 20px #eee;
+            .feedbacks{
+                border-radius: 16px;
+                color: red;
+                .done{
+                    color: green;
+                }
+            }
+            .heading{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+            }
+            label{
+                display: block;
+                font-size: 1.2rem;
+                margin: .5rem 0;
+            }
+            input[type='number']{
+                padding: .5rem;
+                border-radius: 5px;
+                outline: none;
+                border: 1px solid ;
+                font-size: 1.2rem;
+                cursor: disabled;
+            }
+            input[type='submit']{
+                display: block;
+                margin: 1rem 0;
+                padding: .8rem;
+                border-radius: 5px;
+                border: none;
+                background: #4271ff;
+                color: #fff;
+                font-size: 1.5rem;
+                transition: all .3s ease;
+                cursor: pointer;
+                &:hover{
+                    background: #d64cee;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 767px){
+    .container{
+        margin: 2rem auto;
+        padding-top: 0;
+        .header{
+            margin: 0;
+            .logo{
+                img{
+                    width: 8rem;
+                }
+            }
+            .personal-info{
+                padding: 0 1rem;
+                justify-content: left;
+                h2{
+                    padding: .5rem;
+                    font-size: 1rem;
+                }
+                .avatar{
+                    width: 5rem;
+                    height: 5rem;
+                    img{
+                        right: 1rem;
+                    }
+                }
+            }
+        }
+        .main{
+            margin: .5rem 0;
+            .boxes{
+                grid-gap: 2rem;
+                grid-template-columns: 1fr;
+                .box{
+                    height: 5rem;
+                }
+            }
+        }
+        .forms{
+            display: grid;
+            place-items: center;
+            margin: 2rem 0;
+            #send{
+                width: 80%;
+                input[type='number']{
+                    padding: .3rem;
+                    width: 100%;
+                }
+                input[type='submit']{
+                    font-size: 1rem;
+                    padding: .5rem;
+                    margin: .5rem 0 0 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1058px) and (min-width: 764px){
+    .container{
+        .main{
+            .boxes{
+                grid-gap: 3rem;
+                .box{
+                    width: 10rem;
+                    height: 8rem;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 365px){
+    .container{
+        width: 95%;
+        .forms{
+            #send{
+                padding: 0 1rem;
+                label{
+                    font-size: 1rem;
+                }
+                input[type='number']{
+                    padding: .2rem;
+                }
+                input[type='submit']{
+                    padding: .2rem;
+                    margin-bottom: .1rem;
+                }
+            }
+        }
+    }
+}

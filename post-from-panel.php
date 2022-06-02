@@ -1,3 +1,7 @@
+<?php
+    require "./INCLUDES/db.php";
+    require "./INCLUDES/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +28,7 @@
                 <img src="./IMAGE/logo2 1.png" alt="logo">
             </div>
             <ul>
+                <li><a href="./index.php">Home</a></li>
                 <li><a href="./user_profile.php">My Profile</a></li>
                 <li><a href="./properties.php">Properties</a></li>
                 <li class="active"><a href="./post-from-panel.php">Post</a></li>
@@ -35,7 +40,7 @@
                 <h1>post</h1>
             </div>
             <section class="post">
-                    <form action="#" class="cont-repo">
+            <form action="./INCLUDES/post.php" method="POST" class="cont-repo" enctype="multipart/form-data">
                         <div class="txt-bg">
                             <h1>DESCRIPTION</h1>
                         </div>
@@ -47,10 +52,10 @@
                             <div class="type">
                                 <label for="type">Type</label>
                                 <select name="type" id="type" required>
-                                    <option value="">Apartment</option>
-                                    <option value="">Villa</option>
-                                    <option value="">Flat</option>
-                                    <option value="">House</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="flat">Flat</option>
+                                    <option value="house">House</option>
                                 </select>
                             </div>
                             <div class="location">
@@ -64,15 +69,15 @@
                             <div class="negotiable">
                                 <label for="negotiable">Negotiable</label>
                                 <select name="negotiable" id="negotiable" require>
-                                    <option value="" default>Yes</option>
-                                    <option value="">No</option>
+                                    <option value="1" default>Yes</option>
+                                    <option value="0">No</option>
                                 </select>
                             </div>
                             <div class="plan">
                                 <label for="plan">Posting Plan</label>
                                 <select name="plan" id="plan">
-                                    <option value="">Basic 20ETB</option>
-                                    <option value="">Premium 50ETB</option>
+                                    <option value="1">Basic 20ETB</option>
+                                    <option value="2">Premium 50ETB</option>
                                 </select>
                             </div>
                             <p>Read about posting plans <a href="./services.php">Here</a></p>
@@ -97,7 +102,7 @@
                         </div>
                         <label for="desc">Content Description</label>
                         <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
-                        <input type="submit" value="PROCEED TO PAYMENT" class="btn" >
+                        <input type="submit" value="PROCEED TO PAYMENT" name="submit" class="btn" >
                     </div>
                     </form>
             </section>

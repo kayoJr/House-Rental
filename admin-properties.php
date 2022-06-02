@@ -1,3 +1,7 @@
+<?php
+    require "./INCLUDES/db.php";
+    require "./INCLUDES/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +28,7 @@
                 <img src="./IMAGE/logo2 1.png" alt="logo">
             </div>
             <ul>
+                <li><a href="./index.php">Home</a></li>
                 <li><a href="./admin-acc.php">My Profile</a></li>
                 <li class="active"><a href="./admin-properties.php">Properties</a></li>
                 <li><a href="./users.php">Users</a></li>
@@ -34,71 +39,134 @@
             <div class="top">
                 <h1>Properties</h1>
             </div>
-            <table class="table">
+            <header class="desktop">
+
+                <?php
+                include './search_bar_admin.php';
+                ?>
+                </header>
+            <div class="feedback">
+            <p class="success" style="margin-top: 2rem;">   
+                <?php 
+                $msg = @$_REQUEST['msg'];
+                echo $msg;
+                ?>
+                </p> 
+            <p class="error" style="margin-top: 2rem;">   
+                <?php 
+                $err = @$_REQUEST['err'];
+                echo $err;
+                ?>
+                </p> 
+            </div>
+            <?php
+            $sql = "SELECT * FROM `house`";
+            $rs = $conn->query($sql);
+            echo "
+            <table class='table'>
                 <thead>
                     <th>Name</th>
+                    <th>Type</th>
                     <th>Price</th>
                     <th>Location</th>
                     <th>Status</th>
                     <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a>
-                            <a href="#"><img src="./IMAGE/akar-icons_circle-check-fill.png" alt=""></a>
-                        </td>
-                    </tr>
-                    <tr>                
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Posted</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a>
-                            <a href="#"><img src="./IMAGE/akar-icons_circle-check-fill.png" alt=""></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Posted</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a>
-                            <a href="#"><img src="./IMAGE/akar-icons_circle-check-fill.png" alt=""></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a>
-                            <a href="#"><img src="./IMAGE/akar-icons_circle-check-fill.png" alt=""></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a>
-                            <a href="#"><img src="./IMAGE/akar-icons_circle-check-fill.png" alt=""></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a>
-                            <a href="#"><img src="./IMAGE/akar-icons_circle-check-fill.png" alt=""></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                </thead>";
+            if(isset($_GET['submit'])){
+                $type = $_GET['type'];
+                if($type == 'pending'){
+                    $sql = "SELECT * FROM `house` where status = 0";
+                    $res = $conn->query($sql);
+                    if($res->num_rows > 0){
+                        while($row = $res->fetch_assoc()){
+                            $status = 'Pending';
+                            $id = $row['id'];
+                            echo "
+                            <tbody>
+                            <tr>
+                                <td data-label='name'>{$row['title']}</td>
+                                <td data-label='type'>{$row['type']}</td>
+                                <td data-label='price'>{$row['price']}</td>
+                                <td data-label='location'>{$row['location']}</td>
+                                <td data-label='Status'>$status</td>
+                                <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                                    <a href='./INCLUDES/approve.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                            ";
+                        }
+                    }else{
+                        echo "
+                            <h1>No Pending Requests</h1>
+                        ";
+                    }
+                }else if($type == 'approved'){
+                    $sql = "SELECT * FROM `house` where status = 1";
+                    $res = $conn->query($sql);
+                    if($res->num_rows > 0){
+                        while($row = $res->fetch_assoc()){
+                            $status = 'Approved';
+                            $id = $row['id'];
+                            echo "
+                            <tbody>
+                            <tr>
+                                <td data-label='name'>{$row['title']}</td>
+                                <td data-label='type'>{$row['type']}</td>
+                                <td data-label='price'>{$row['price']}</td>
+                                <td data-label='location'>{$row['location']}</td>
+                                <td data-label='Status'>$status</td>
+                                <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                            ";
+                        }
+                    }else{
+                        echo "
+                            <h1>No Approved Requests</h1>
+                        ";
+                    }
+                }
+            }else{
+                if($rs-> num_rows > 0){
+                    while($row = $rs-> fetch_assoc()){
+                        $id = $row['id'];
+                        if($row['status'] == 0){
+                            $status = 'Pending';
+                            echo "
+                            <tbody>
+                                <tr>
+                                    <td data-label='name'>{$row['title']}</td>
+                                    <td data-label='type'>{$row['type']}</td>
+                                    <td data-label='price'>{$row['price']}</td>
+                                    <td data-label='location'>{$row['location']}</td>
+                                    <td data-label='Status'>$status</td>
+                                    <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                                        <a href='./INCLUDES/approve.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
+                                    </td>
+                                </tr>
+                            </tbody> ";
+                        }else{
+                            $status = 'Approved';
+                            echo "
+                            <tbody>
+                                <tr>
+                                    <td data-label='name'>{$row['title']}</td>
+                                    <td data-label='type'>{$row['type']}</td>
+                                    <td data-label='price'>{$row['price']}</td>
+                                    <td data-label='location'>{$row['location']}</td>
+                                    <td data-label='Status'>$status</td>
+                                    <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                                    </td>
+                                </tr>
+                            </tbody> ";
+                        }
+                    }
+                }
+            }
+            echo "</table>"
+            ?>
         </main>
     </div>
 </body>

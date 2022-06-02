@@ -122,8 +122,10 @@ ul,a{
             box-shadow: 10px 10px 15px rgba($color: #000, $alpha: 0.25);
             margin-bottom: 1.5rem;
             overflow-y: hidden;
+            width: fit-content;
             img{
                 height: max-content;
+                width: 24.75rem;
             }
             .price{
                 position: absolute;
@@ -168,6 +170,16 @@ footer{
     text-align: center;
     color: #fff;
     font-size: 1.2rem;
+}
+.search-admin{
+    width: 30%;
+    margin: 0 auto;
+    form{
+        select{
+            width: fit-content !important;
+        }
+    }
+
 }
 .feedback{
     text-align: center;

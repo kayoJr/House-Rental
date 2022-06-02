@@ -111,12 +111,16 @@ ul, a {
           box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
   margin-bottom: 1.5rem;
   overflow-y: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .houses .house img {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  width: 24.75rem;
 }
 
 .houses .house .price {
@@ -167,6 +171,17 @@ footer {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
+}
+
+.search-admin {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.search-admin form select {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
 }
 
 .feedback {
@@ -296,12 +311,16 @@ ul, a {
           box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
   margin-bottom: 1.5rem;
   overflow-y: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .houses .house img {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  width: 24.75rem;
 }
 
 .houses .house .price {
@@ -352,6 +371,17 @@ footer {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
+}
+
+.search-admin {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.search-admin form select {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
 }
 
 .feedback {

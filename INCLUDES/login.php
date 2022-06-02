@@ -18,6 +18,8 @@ if(isset($_POST['login'])){
                 $state = $stat['status'];
                 if($state == 1){
                     header("Location: ../user_profile.php");
+                }else if($state == 2){
+                    header("Location: ../admin-acc.php");
                 }else{
                     header("Location: ../login.php?err=Your account is blocked");
                 }

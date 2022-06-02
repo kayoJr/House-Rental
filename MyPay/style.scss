@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat;
+    overflow: hidden;
+    a{
+        text-decoration: none;
+    }
+}
+body{
+    background: linear-gradient(to right, #82a0fd, #db82eb) no-repeat;
+    height: 100vh;
+}
+.container{
+    width: 500px;
+    margin: 5rem auto;
+    background: rgba( 255, 255, 255, 0.14 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 2rem;
+    .incorrect{
+        text-align: center;
+        font-size: 1.2rem;
+        color: red;
+    }
+    h1{
+        padding-bottom: 1rem;
+        text-align: center;
+        color: #0037FF;
+    }
+    span{
+        a{
+            font-weight: 500;
+        }
+    }
+    .forget{
+        text-align: right;
+        padding: 1rem 0 .5rem 0;
+        font-weight: bold;
+    }
+    .agree{
+        padding: 1rem 0 .5rem 0;
+    }
+    .newAcc{
+        text-align: center;
+        a{
+            font-size: 1.2rem;
+            color: #000;
+            &:hover{
+                color: #fff;
+            }
+        }
+    }
+    label, input{
+        display: block;
+        margin-top: .8rem;
+        font-size: 1.2rem;
+    }
+    input{
+        width: 100%;
+        padding: .5rem;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+    }
+    input[type='submit']{
+        margin: 1rem 0;
+        border: none;
+        background: #4271ff;
+        color: #fff;
+        font-size: 1.5rem;
+        transition: all .3s ease;
+        cursor: pointer;
+        &:hover{
+            background: #d64cee;
+        }
+    }
+}
+
+.small{
+    position: absolute;
+    top: 2rem;
+    left: 27.5%;
+    z-index: -1;
+    transform: rotate(30deg);
+    width: 50px;
+    height: 50px;
+    margin: 5rem auto;
+    background: rgba( 255, 255, 255, 0.14 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: #d64cee;
+}
+.small2{
+    top: 25%;
+    left: 20%;
+}
+.medium{
+    position: absolute;
+    top: 2rem;
+    right: 26%;
+    transform: rotate(-30deg);
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    margin: 5rem auto;
+    background: rgba( 255, 255, 255, 0.14 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: #4271ff;
+}
+.circle{
+    position: absolute;
+    top: 15rem;
+    right: 43%;
+    transform: rotate(-30deg);
+    z-index: -1;
+    width: 400px;
+    height: 200px;
+    margin: 5rem auto;
+    background: rgba( 255, 255, 255, 0.14 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    border-radius: 50%;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: #4271ffde;
+}
+@media (max-width: 700px){
+    .container{
+        width: 350px;
+        h1{
+            font-size: 1.8rem;
+        }
+        p{
+            font-size: .8rem;
+        }
+    }
+}

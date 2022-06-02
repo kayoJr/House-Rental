@@ -1,3 +1,7 @@
+<?php
+    require "./INCLUDES/db.php";
+    $id = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,122 +48,105 @@
         </div>
     </div>
     <header class="mobile">
-        <nav>
-            <img id="ham" src="./IMAGE/ant-design_menu-outlined.png" alt="">
-            <img src="./IMAGE/logo mobile.png" alt="">
-            <img id="avatar" src="./image/ooui_user-avatar mobile.png" alt="">
-        </nav>
-        </header>
+        <?php
+            include "mob_nav.php";
+        ?>
+    </header>
     <header class="desktop">
-        <nav>
-            <div class="container nav-items">
-                <div class="left-section">
-                    <div class="logo">
-                        <img src="./IMAGE/logo2 1.png" alt="Logo">
-                    </div>
-                    <ul>
-                        <li><a href="index.php">HOME</a></li>
-                        <li><a href="services.php">OUR SERVICES</a></li>
-                        <li><a href="contact.php">CONTACT</a></li>
-                    </ul>
-                </div>
-                <div class="right-section">
-                    <a href="login.php"><img src="./IMAGE/ooui_user-avatar.png" alt="Avatar"></a> 
-                    <a class="btn" href="post.php">POST</a>
-                </div>
-            </div>
-        </nav>
-        <div class="search" id="search">
-            <div class="container">
-                <form action="#">
-                    <select name="" id="">
-                        <option value="" disabled selected>Type</option>
-                        <option value="">Apartment</option>
-                        <option value="">Villa</option>
-                        <option value="">Flat</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="" disabled selected>Location</option>
-                        <option value="">University</option>
-                        <option value="">Kella</option>
-                        <option value="">06</option>
-                    </select>
-                    <input type="number" name="" id="" placeholder="Min Price">
-                    <input type="number" name="" id="" placeholder="Max Price">
-                    <input type="submit" value="SEARCH" class="btn btn-secondary">
-                </form>
-            </div>
-        </div>
+        <?php
+            include "desk_nav.php";
+            include "search_bar.php";
+        ?>
     </header>
 
 
     <section class="details">
         <div class="container">
-            <div class="title-price">
-                <h1>"Property Title"</h1>
-                <p class="price">Price</p>
-            </div>
-            <p class="type">Type</p>
-            <div class="loc">
-                <img src="./IMAGE/carbon_location-filled.png" alt="location">
-                <p class="location">Location</p>
-            </div>
-            <div class="image-personal">
-                <div class="image">
-                    <img src="./IMAGE/unsplash_2gDwlIim3Uw.png" alt="house">
-                </div>
-                    <div class="personal">
-                        <div class="top">
-                            <img src="./IMAGE/ooui_user-avatar.png" alt="avatar">
-                            <div>
-                                <p>John Doe</p>
-                                <p>Member since 2021</p>
+            <?php
+                $sql = "SELECT * FROM `house` WHERE `id` = $id";
+                $res = $conn->query($sql);
+                if($res->num_rows > 0){
+                    while($row = $res -> fetch_assoc()){
+                        if($row['negotiable'] = 1){
+                            $nego = 'negotiable';
+                        }else{
+                            $nego = 'fixed';
+                        }
+                        $user = $row['owner'];
+                        $sql = "SELECT * FROM `users` WHERE `phone` = $user";
+                        $rs = $conn->query($sql);
+                        if($rs->num_rows>0){
+                            while($rows = $rs->fetch_assoc()){
+                                $name = $rows['fname']. " " . $rows['lname'];
+                                $whatsapp = $rows['whatsapp'];
+                                $telegram = $rows['telegram'];
+                                $phone = $rows['phone'];
+                            }
+                        }
+                        echo "
+                        <div class='title-price'>
+                        <h1>{$row['title']}</h1>
+                        <p class='price'>{$row['price']}</p>
+                    </div>
+                    <p class='type'>{$row['type']}</p>
+                    <div class='loc'>
+                        <img src='./IMAGE/carbon_location-filled.png' alt='location'>
+                        <p class='location'>{$row['location']}</p>
+                    </div>
+                    <div class='image-personal'>
+                        <div class='image'>
+                            <img src='./IMAGE/{$row['photo']}' alt='house'>
+                        </div>
+                            <div class='personal'>
+                                <div class='top'>
+                                    <img src='./IMAGE/ooui_user-avatar.png' alt='avatar'>
+                                    <div>
+                                        <p>$name</p>
+                                    </div>
+                                </div>
+                                <div class='txt-bg'>
+                                    <h3>Contact Seller</h3>
+                                </div>
+                                <div class='social'>
+                                    <a href='https://wa.me/$whatsapp' class='whatsapp'><img src='./IMAGE/akar-icons_whatsapp-fill.png' alt='whatsapp'> whatsapp</a>
+                                    <a href='https://telegram.me/$telegram' class='telegram'><img src='./IMAGE/cib_telegram-plane.png' alt='telegram'> Telegram</a>
+                                    <a href='#' class='phone'><img src='./IMAGE/carbon_phone-filled.png' alt='phone'> $phone</a>
+                        
+                                </div>
+                                <div class='txt-bg'>
+                                    <h3>Useful Links</h3>
+                                </div>
+                                <div class='links'>
+                                    <a href='./safty-tip.php'>Read Safty Tips</a>
+                                    <a href='./report.php'>Report This Ad</a>
+                                </div>
                             </div>
+                        
+                    </div>
+                    <div class='desc-detail'>
+                        <div class='desc'>
+                            <h3>Description</h3>
+                            <p>{$row['description']}
+                                </p>
+                            <p>The price is {$row['price']} birr and it is $nego.</p>
                         </div>
-                        <div class="txt-bg">
-                            <h3>Contact Seller</h3>
-                        </div>
-                        <div class="social">
-                            <a href="#" class="whatsapp"><img src="./IMAGE/akar-icons_whatsapp-fill.png" alt="whatsapp"> whatsapp</a>
-                            <a href="#" class="telegram"><img src="./IMAGE/cib_telegram-plane.png" alt="telegram"> Telegram</a>
-                            <a href="#" class="phone"><img src="./IMAGE/carbon_phone-filled.png" alt="phone"> +251911121314</a>
-                
-                        </div>
-                        <div class="txt-bg">
-                            <h3>Useful Links</h3>
-                        </div>
-                        <div class="links">
-                            <a href="./safty-tip.php">Read Safty Tips</a>
-                            <a href="./report.php">Report This Ad</a>
+                        <div class='detail'>
+                            <h3>Details</h3>
+                            <ul>
+                                <li>Price <span>{$row['price']} ETB</span></li>
+                                <li>Size <span>{$row['area']} M <sup>2</sup></span></li>
+                                <li>Room <span>{$row['room']} Rooms</span></li>
+                                <li>Type <span>{$row['type']}</span></li>
+                                <li>Status <span>For Rent</span></li>
+                                <li>Negotiable <span>$nego</span></li>
+                                <li>Location <span>{$row['location']}</span></li>
+                            </ul>
                         </div>
                     </div>
-                
-            </div>
-            <div class="desc-detail">
-                <div class="desc">
-                    <h3>Description</h3>
-                    <p>The building is located in a residential area and 
-                        the flat has living and dinning room with 
-                        balcony, kitchen, master bedroom with balcony 
-                        and it’s own bathroom, another two bedrooms 
-                        with common shower room, maid room with 
-                        shower, and garage for one car.
-                        </p>
-                    <p>The rate is 1,000,000 birr and negotiable.</p>
-                </div>
-                <div class="detail">
-                    <h3>Details</h3>
-                    <ul>
-                        <li>Price <span>1000000 ETB</span></li>
-                        <li>Size <span>500 M <sup>2</sup></span></li>
-                        <li>Room <span>6 Rooms</span></li>
-                        <li>Type <span>Villa</span></li>
-                        <li>Status <span>For Rent</span></li>
-                        <li>Negotiable <span>Yes</span></li>
-                        <li>Location <span>Around JJU</span></li>
-                    </ul>
-                </div>
-            </div>
+                        ";
+                    }
+                }
+            ?>
         </div>
     </section>
 

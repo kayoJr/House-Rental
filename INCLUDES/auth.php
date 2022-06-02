@@ -1,7 +1,7 @@
 <?php
-@session_start();
-if((!isset($_SESSION["uname"]))){
-    header("Location: ../index.php?msg=Login First");
+session_start();
+if((!isset($_SESSION["user"]))){
+    header("Location: ./login.php?msg=Login First");
     exit(); 
 }
 ?>

@@ -111,12 +111,16 @@ ul, a {
           box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
   margin-bottom: 1.5rem;
   overflow-y: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .houses .house img {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  width: 24.75rem;
 }
 
 .houses .house .price {
@@ -167,6 +171,17 @@ footer {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
+}
+
+.search-admin {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.search-admin form select {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
 }
 
 .feedback {
@@ -260,7 +275,8 @@ header .search form {
 }
 
 header .search form input[type="number"],
-header .search form select {
+header .search form select,
+header .search form input[type="text"] {
   border: none;
   outline: none;
   padding: 15px 10px;
@@ -299,6 +315,9 @@ header .sticky form select {
 .premium-house {
   grid-auto-flow: column;
   grid-gap: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -316,13 +335,12 @@ header .sticky form select {
 }
 
 .recent-house {
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
-}
-
-.recent-house .house img {
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .service p {
@@ -737,6 +755,7 @@ header .sticky form select {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
+    overflow-y: scroll;
   }
   .desktop .search form input[type="submit"] {
     -ms-grid-column: 1;
@@ -753,35 +772,37 @@ header .sticky form select {
   .container {
     max-width: 350px;
   }
-  .premium .house {
+  .premium .houses, .premium .house {
     overflow-y: visible;
     margin-bottom: 5rem;
+    width: initial;
   }
-  .premium .house .detail {
+  .premium .houses .detail, .premium .house .detail {
     background-color: #fff;
   }
-  .premium .house .detail p {
+  .premium .houses .detail p, .premium .house .detail p {
     color: #000;
   }
-  .premium .house:hover .detail {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+  .premium .houses::-webkit-scrollbar, .premium .house::-webkit-scrollbar {
+    width: 0px;
   }
-  .recent .house {
+  .recent .houses, .recent .house {
     overflow-y: visible;
     margin-bottom: 5rem;
     position: relative;
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
   }
-  .recent .house img {
+  .recent .houses img, .recent .house img {
     width: 100%;
   }
-  .recent .house .detail {
+  .recent .houses .detail, .recent .house .detail {
     background-color: #fff;
   }
-  .recent .house .detail p {
+  .recent .houses .detail p, .recent .house .detail p {
     color: #000;
   }
-  .recent .house:hover .detail {
+  .recent .houses:hover .detail, .recent .house:hover .detail {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }

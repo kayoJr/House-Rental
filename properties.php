@@ -1,3 +1,7 @@
+<?php
+    require './INCLUDES/db.php';
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +18,6 @@
     <link rel="stylesheet" href="./CSS/main.css">
     <link rel="stylesheet" href="./CSS/panel.css">
     <title>User Panel</title>
-    <title>Document</title>
 </head>
 
 <body>
@@ -24,6 +27,7 @@
                 <img src="./IMAGE/logo2 1.png" alt="logo">
             </div>
             <ul>
+                <li><a href="./index.php">Home</a></li>
                 <li><a href="./user_profile.php">My Profile</a></li>
                 <li class="active"><a href="./properties.php">Properties</a></li>
                 <li><a href="./post-from-panel.php">Post</a></li>
@@ -34,59 +38,64 @@
             <div class="top">
                 <h1>Properties</h1>
             </div>
-            <table class="table">
+            <div class="feedback">
+            <p class="success">   
+                <?php 
+                $msg = @$_REQUEST['msg'];
+                echo $msg;
+                ?>
+                </p> 
+            <p class="error">   
+                <?php 
+                $err = @$_REQUEST['err'];
+                echo $err;
+                ?>
+                </p> 
+            </div>
+            <?php
+                $owner = $_SESSION['user'];
+                $sql = "SELECT * FROM `house` WHERE `owner` = $owner";
+                $rs = $conn->query($sql);
+                echo " <table class='table'>
                 <thead>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Location</th>
                     <th>Status</th>
+                    <th>Plan</th>
                     <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Posted</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Posted</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Apartment</td>
-                        <td data-label="Price">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Status">Pending</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/fluent_delete-20-filled.png" alt=""></a></td>
-                    </tr>
-                </tbody>
-            </table>
+                </thead>";
+                if($rs->num_rows > 0){
+                    while($row = $rs->fetch_assoc()){
+                        $id = $row['id'];
+                        $plan = $row['plan'];
+                        if($plan == 1){
+                            $plan_type = 'Basic';
+                        }else{
+                            $plan_type = 'Premium';
+                        }
+                        if($row['status'] == 1){
+                            $status = 'Uploaded';
+                        }else{
+                            $status = 'Pending';
+                        }
+                        echo "
+                        <tbody>
+                            <tr>
+                                <td data-label='name'>{$row['title']}</td>
+                                <td data-label='Price'>{$row['price']}</td>
+                                <td data-label='Location'>{$row['location']}</td>
+                                <td data-label='Status'>$status</td>
+                                <td data-label='Plan'>$plan_type</td>
+                                <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a></td>
+                            </tr>
+                        </tbody>
+                        ";
+                    }
+                }
+                echo "</table>";
+            ?>
+
         </main>
     </div>
 </body>

@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: montserrat;
+}
+
+body {
+  background: -webkit-gradient(linear, left top, right top, from(#82a0fd), to(#db82eb)) no-repeat;
+  background: linear-gradient(to right, #82a0fd, #db82eb) no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.container {
+  width: 90%;
+  height: 90%;
+  margin: 3rem auto;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+}
+
+.container .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 5rem;
+}
+
+.container .header .logo img {
+  width: 50%;
+}
+
+.container .header .personal-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  padding: 0 1rem;
+}
+
+.container .header .personal-info h2 {
+  text-align: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 16px;
+  text-transform: uppercase;
+}
+
+.container .header .personal-info .avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.container .header .personal-info .avatar img {
+  width: 60%;
+  position: absolute;
+  top: 1rem;
+  right: 1.3rem;
+}
+
+.container .main {
+  margin: 2rem auto;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.container .main .boxes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5rem;
+}
+
+.container .main .boxes .box {
+  background: #fff;
+  width: 15rem;
+  height: 10rem;
+  border-radius: 16px;
+  -webkit-box-shadow: 5px 5px 20px #eee;
+          box-shadow: 5px 5px 20px #eee;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-transition: all .4s ease-out;
+  transition: all .4s ease-out;
+}
+
+.container .main .boxes .box:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-shadow: 5px 5px 20px #bdbdbd;
+          box-shadow: 5px 5px 20px #bdbdbd;
+}
+
+.container .main .boxes .box button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1.4rem;
+}
+
+.container .main .boxes .box:nth-child(2) {
+  cursor: not-allowed;
+}
+
+.container .main .boxes .box:nth-child(1) {
+  cursor: not-allowed;
+}
+
+.container .forms {
+  margin-top: 5rem;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.container .forms #deposit {
+  display: none;
+}
+
+.container .forms #withdraw {
+  display: none;
+}
+
+.container .forms #send {
+  display: block;
+}
+
+.container .forms form {
+  background: #fff;
+  width: 25rem;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  -webkit-box-shadow: 5px 5px 20px #eee;
+          box-shadow: 5px 5px 20px #eee;
+}
+
+.container .forms form .feedbacks {
+  border-radius: 16px;
+  color: red;
+}
+
+.container .forms form .feedbacks .done {
+  color: green;
+}
+
+.container .forms form .heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+}
+
+.container .forms form label {
+  display: block;
+  font-size: 1.2rem;
+  margin: .5rem 0;
+}
+
+.container .forms form input[type='number'] {
+  padding: .5rem;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid;
+  font-size: 1.2rem;
+  cursor: disabled;
+}
+
+.container .forms form input[type='submit'] {
+  display: block;
+  margin: 1rem 0;
+  padding: .8rem;
+  border-radius: 5px;
+  border: none;
+  background: #4271ff;
+  color: #fff;
+  font-size: 1.5rem;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.container .forms form input[type='submit']:hover {
+  background: #d64cee;
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin: 2rem auto;
+    padding-top: 0;
+  }
+  .container .header {
+    margin: 0;
+  }
+  .container .header .logo img {
+    width: 8rem;
+  }
+  .container .header .personal-info {
+    padding: 0 1rem;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+  }
+  .container .header .personal-info h2 {
+    padding: .5rem;
+    font-size: 1rem;
+  }
+  .container .header .personal-info .avatar {
+    width: 5rem;
+    height: 5rem;
+  }
+  .container .header .personal-info .avatar img {
+    right: 1rem;
+  }
+  .container .main {
+    margin: .5rem 0;
+  }
+  .container .main .boxes {
+    grid-gap: 2rem;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .container .main .boxes .box {
+    height: 5rem;
+  }
+  .container .forms {
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    margin: 2rem 0;
+  }
+  .container .forms #send {
+    width: 80%;
+  }
+  .container .forms #send input[type='number'] {
+    padding: .3rem;
+    width: 100%;
+  }
+  .container .forms #send input[type='submit'] {
+    font-size: 1rem;
+    padding: .5rem;
+    margin: .5rem 0 0 0;
+  }
+}
+
+@media (max-width: 1058px) and (min-width: 764px) {
+  .container .main .boxes {
+    grid-gap: 3rem;
+  }
+  .container .main .boxes .box {
+    width: 10rem;
+    height: 8rem;
+  }
+}
+
+@media (max-width: 365px) {
+  .container {
+    width: 95%;
+  }
+  .container .forms #send {
+    padding: 0 1rem;
+  }
+  .container .forms #send label {
+    font-size: 1rem;
+  }
+  .container .forms #send input[type='number'] {
+    padding: .2rem;
+  }
+  .container .forms #send input[type='submit'] {
+    padding: .2rem;
+    margin-bottom: .1rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */

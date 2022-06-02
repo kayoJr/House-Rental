@@ -1,6 +1,10 @@
+<?php
+    require "./INCLUDES/db.php";
+    require "./INCLUDES/auth.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="theme-color" content="#45B4E8">
@@ -24,6 +28,7 @@
                 <img src="./IMAGE/logo2 1.png" alt="logo">
             </div>
             <ul>
+                <li><a href="./index.php">Home</a></li>
                 <li class="active"><a href="./user_profile.php">My Profile</a></li>
                 <li><a href="./properties.php">Properties</a></li>
                 <li><a href="./post-from-panel.php">Post</a></li>
@@ -34,34 +39,63 @@
             <div class="top">
                 <h1>My Profile</h1>
             </div>
-            <form action="#" class="form">
+            <form action="./INCLUDES/update.php" method="POST" class="form">
+            <div class="feedback">
+            <p class="success" style="margin-top: 2rem;">   
+                <?php 
+                $msg = @$_REQUEST['msg'];
+                echo $msg;
+                ?>
+                </p> 
+            <p class="error" style="margin-top: 2rem;">   
+                <?php 
+                $err = @$_REQUEST['err'];
+                echo $err;
+                ?>
+                </p> 
+            </div>
                 <div class="form-elements">
+                    <?php
+                        $phone = $_SESSION['user'];
+                        $sql = "SELECT * FROM `users` WHERE `phone` = $phone";
+                        $res = $conn->query($sql);
+                        if($res){
+                            while($row = mysqli_fetch_assoc($res)){
+                                $fname = $row['fname'];
+                                $lname = $row['lname'];
+                                $phone = $row['phone'];
+                                $email = $row['email'];
+                                $whatsapp = $row['whatsapp'];
+                                $telegram = $row['telegram'];
+                            }
+                        }
+                    ?>
                     <div>
                         <label for="fname">First Name</label>
-                        <input type="text" name="fname" id="fname" required>
+                        <input type="text" name="fname" id="fname" required placeholder="<?php echo $fname ?>">
                     </div>
                     <div>
                         <label for="lname">Last Name</label>
-                        <input type="text" name="lname" id="lname" required>
+                        <input type="text" name="lname" id="lname" required placeholder="<?php echo $lname ?>">
                     </div>
                     <div>
                         <label for="phone">Phone</label>
-                        <input type="tel" name="phone" id="phone" required>
+                        <input type="tel" name="phone" id="phone" required placeholder="<?php echo $phone ?>">
                     </div>
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" required placeholder="<?php echo $email ?>">
                     </div>
                     <div>
                         <label for="whatsapp">Whatsapp</label>
-                        <input type="tel" name="whatsapp" id="whatsapp">
+                        <input type="tel" name="whatsapp" id="whatsapp" placeholder="<?php echo $whatsapp ?>">
                     </div>
                     <div>
                         <label for="telegram">Telegram</label>
-                        <input type="tel" name="telegram" id="telegram">
+                        <input type="tel" name="telegram" id="telegram" placeholder="<?php echo $telegram ?>">
                     </div>
                 </div>
-                <input type="submit" value="Update" class="btn">
+                <input type="submit" value="Update" name="update" class="btn">
             </form>
         </main>
     </div>

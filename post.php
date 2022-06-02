@@ -1,3 +1,7 @@
+<?php
+    require "./INCLUDES/db.php";
+    require "./INCLUDES/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,57 +48,34 @@
         </div>
     </div>
     <header class="mobile">
-        <nav>
-            <img id="ham" src="./IMAGE/ant-design_menu-outlined.png" alt="">
-            <img src="./IMAGE/logo mobile.png" alt="">
-            <img id="avatar" src="./image/ooui_user-avatar mobile.png" alt="">
-        </nav>
-        </header>
+        <?php
+            include "mob_nav.php";
+        ?>
+    </header>
     <header class="desktop">
-        <nav>
-            <div class="container nav-items">
-                <div class="left-section">
-                    <div class="logo">
-                        <img src="./IMAGE/logo2 1.png" alt="Logo">
-                    </div>
-                    <ul>
-                        <li><a href="index.php">HOME</a></li>
-                        <li><a href="services.php">OUR SERVICES</a></li>
-                        <li><a href="contact.php">CONTACT</a></li>
-                    </ul>
-                </div>
-                <div class="right-section">
-                    <a href="login.php"><img src="./IMAGE/ooui_user-avatar.png" alt="Avatar"></a> 
-                    <a class="btn" href="post.php">POST</a>
-                </div>
-            </div>
-        </nav>
-        <div class="search" id="search">
-            <div class="container">
-                <form action="#">
-                    <select name="" id="">
-                        <option value="" disabled selected>Type</option>
-                        <option value="">Apartment</option>
-                        <option value="">Villa</option>
-                        <option value="">Flat</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="" disabled selected>Location</option>
-                        <option value="">University</option>
-                        <option value="">Kella</option>
-                        <option value="">06</option>
-                    </select>
-                    <input type="number" name="" id="" placeholder="Min Price">
-                    <input type="number" name="" id="" placeholder="Max Price">
-                    <input type="submit" value="SEARCH" class="btn btn-secondary">
-                </form>
-            </div>
-        </div>
+        <?php
+            include "desk_nav.php";
+            include "search_bar.php";
+        ?>
     </header>
 
     <section class="post">
         <div class="container">
-            <form action="#" class="cont-repo">
+            <form action="./INCLUDES/post.php" method="POST" class="cont-repo" enctype="multipart/form-data">
+            <div class="feedback">
+            <p class="success">   
+                <?php 
+                $msg = @$_REQUEST['msg'];
+                echo $msg;
+                ?>
+                </p> 
+            <p class="error">   
+                <?php 
+                $err = @$_REQUEST['err'];
+                echo $err;
+                ?>
+                </p> 
+            </div>
                 <div class="txt-bg">
                     <h1>DESCRIPTION</h1>
                 </div>
@@ -106,10 +87,10 @@
                     <div class="type">
                         <label for="type">Type</label>
                         <select name="type" id="type" required>
-                            <option value="">Apartment</option>
-                            <option value="">Villa</option>
-                            <option value="">Flat</option>
-                            <option value="">House</option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="Villa">Villa</option>
+                            <option value="Flat">Flat</option>
+                            <option value="House">House</option>
                         </select>
                     </div>
                     <div class="location">
@@ -123,15 +104,15 @@
                     <div class="negotiable">
                         <label for="negotiable">Negotiable</label>
                         <select name="negotiable" id="negotiable" require>
-                            <option value="" default>Yes</option>
-                            <option value="">No</option>
+                            <option value="1" default>Yes</option>
+                            <option value="0">No</option>
                         </select>
                     </div>
                     <div class="plan">
                         <label for="plan">Posting Plan</label>
                         <select name="plan" id="plan">
-                            <option value="">Basic 20ETB</option>
-                            <option value="">Premium 50ETB</option>
+                            <option value="1">Basic 20ETB</option>
+                            <option value="2">Premium 50ETB</option>
                         </select>
                     </div>
                     <p>Read about posting plans <a href="./services.php">Here</a></p>
@@ -156,7 +137,7 @@
                 </div>
                 <label for="desc">Content Description</label>
                 <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
-                <input type="submit" value="PROCEED TO PAYMENT" class="btn" >
+                <input type="submit" value="PROCEED TO PAYMENT" name="submit" class="btn" >
             </div>
             </form>
     </div>

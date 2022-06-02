@@ -1,3 +1,6 @@
+<?php
+    require "./INCLUDES/db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,52 +47,15 @@
         </div>
     </div>
     <header class="mobile">
-        <nav>
-            <img id="ham" src="./IMAGE/ant-design_menu-outlined.png" alt="">
-            <img src="./IMAGE/logo mobile.png" alt="">
-            <img id="avatar" src="./image/ooui_user-avatar mobile.png" alt="">
-        </nav>
-        </header>
+        <?php
+            include "mob_nav.php";
+        ?>
+    </header>
     <header class="desktop">
-        <nav>
-            <div class="container nav-items">
-                <div class="left-section">
-                    <div class="logo">
-                        <img src="./IMAGE/logo2 1.png" alt="Logo">
-                    </div>
-                    <ul>
-                        <li><a href="index.php">HOME</a></li>
-                        <li><a href="services.php">OUR SERVICES</a></li>
-                        <li><a href="contact.php">CONTACT</a></li>
-                    </ul>
-                </div>
-                <div class="right-section">
-                    <a href="login.php"><img src="./IMAGE/ooui_user-avatar.png" alt="Avatar"></a> 
-                    <a class="btn" href="post.php">POST</a>
-                </div>
-            </div>
-        </nav>
-        <div class="search" id="search">
-            <div class="container">
-                <form action="#">
-                    <select name="" id="">
-                        <option value="" disabled selected>Type</option>
-                        <option value="">Apartment</option>
-                        <option value="">Villa</option>
-                        <option value="">Flat</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="" disabled selected>Location</option>
-                        <option value="">University</option>
-                        <option value="">Kella</option>
-                        <option value="">06</option>
-                    </select>
-                    <input type="number" name="" id="" placeholder="Min Price">
-                    <input type="number" name="" id="" placeholder="Max Price">
-                    <input type="submit" value="SEARCH" class="btn btn-secondary">
-                </form>
-            </div>
-        </div>
+        <?php
+            include "desk_nav.php";
+            include "search_bar.php";
+        ?>
     </header>
 
 
@@ -100,102 +66,29 @@
                 <h1>PREMIUM POSTS</h1>
             </div>
             <div class="houses premium-house">
-                <a href="./detail.php">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
+                <?php
+                    $sql = "SELECT * FROM `house` WHERE `plan` = 2 AND `status` = 1 ORDER BY `id` DESC";
+                    $res = $conn->query($sql);
+                    if($res->num_rows > 0){
+                        while($row = $res-> fetch_assoc()){
+                            $id = $row['id'];
+                            echo "
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            ";
+                        }
+                    }
+                ?>
             </div>
         </div>
     </section>
@@ -206,246 +99,102 @@
                 <h1>RECENT POSTS</h1>
             </div>
             <div class="houses recent-house">
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="./detail.html">
-                    <div class="house">
-                        <img src="./IMAGE/house.png" alt="house">
-                        <div class="price">
-                            <p>5000$/MO</p>
-                        </div>
-                        <div class="detail">
-                            <p>MAIN TITLE</p>
-                            <p>LOCATION</p>
-                        </div>
-                    </div>
-                </a>
+            <?php
+                    $sql = "SELECT * FROM `house` WHERE `plan` = 1 AND `status` = 1 ORDER BY `id` DESC";
+                    $res = $conn->query($sql);
+                    if($res->num_rows > 0){
+                        while($row = $res-> fetch_assoc()){
+                            $id = $row['id'];
+                            echo "
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            <a class = 'house-element' href='./detail.php?id=$id'>
+                            <div class='house'>
+                                <img src='./FILES/{$row['photo']}' alt='house'>
+                                <div class='price'>
+                                    <p>{$row['price']}$/MO</p>
+                                </div>
+                                <div class='detail'>
+                                    <p>{$row['title']}</p>
+                                    <p>{$row['location']}</p>
+                                </div>
+                            </div>
+                        </a>
+                            ";
+                        }
+                    }
+                ?>
+                
             </div>
         </div>
     </section>

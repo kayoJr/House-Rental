@@ -1,3 +1,7 @@
+<?php
+    require "./INCLUDES/db.php";
+    require "./INCLUDES/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +28,7 @@
                 <img src="./IMAGE/logo2 1.png" alt="logo">
             </div>
             <ul>
+                <li><a href="./index.php">Home</a></li>
                 <li><a href="./admin-acc.php">My Profile</a></li>
                 <li><a href="./admin-properties.php">Properties</a></li>
                 <li class="active"><a href="./users.php">Users</a></li>
@@ -34,59 +39,68 @@
             <div class="top">
                 <h1>Properties</h1>
             </div>
-            <table class="table">
+            <div class="feedback">
+            <p class="success" style="margin-top: 2rem;">   
+                <?php 
+                $msg = @$_REQUEST['msg'];
+                echo $msg;
+                ?>
+                </p> 
+            <p class="error" style="margin-top: 2rem;">   
+                <?php 
+                $err = @$_REQUEST['err'];
+                echo $err;
+                ?>
+                </p> 
+            </div>
+            <?php
+            $sql = "SELECT * FROM `users` WHERE `status` = 0 OR `status` = 1";
+            $rs = $conn->query($sql);
+            echo "
+            <table class='table'>
                 <thead>
                     <th>Name</th>
                     <th>Phone</th>
-                    <th>Location</th>
                     <th>Email</th>
                     <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="name">Kaleb</td>
-                        <td data-label="Phone">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Email">Kaleb@gmail.com</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/el_ban-circle.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Kaleb</td>
-                        <td data-label="Phone">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Email">Kaleb@gmail.com</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/el_ban-circle.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Kaleb</td>
-                        <td data-label="Phone">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Email">Kaleb@gmail.com</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/el_ban-circle.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Kaleb</td>
-                        <td data-label="Phone">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Email">Kaleb@gmail.com</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/el_ban-circle.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Kaleb</td>
-                        <td data-label="Phone">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Email">Kaleb@gmail.com</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/el_ban-circle.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td data-label="name">Kaleb</td>
-                        <td data-label="Phone">1000000</td>
-                        <td data-label="Location">Jigjiga</td>
-                        <td data-label="Email">Kaleb@gmail.com</td>
-                        <td data-label="Action"><a href="#"><img src="./IMAGE/el_ban-circle.png" alt=""></a></td>
-                    </tr>
-                </tbody>
-            </table>
+                </thead>";
+                if($rs-> num_rows > 0){
+                    while($row = $rs -> fetch_assoc()){
+                        $name = $row['fname']. " " .$row['lname']; 
+                        $id = $row['id'];
+                        $status = $row['status'];
+                        if($status == 0){
+                            echo"
+                            <tbody>
+                            <tr>
+                                <td data-label='name'>$name</td>
+                                <td data-label='Phone'>{$row['phone']}</td>
+                                <td data-label='Email'>{$row['email']}</td>
+                                <td data-label='Action'>
+                                <a href='./INCLUDES/approve-user.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
+                                <a href='./INCLUDES/delete-user.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                            </td>
+                            </tr>
+                        </tbody>";
+                        }else{
+                            echo"
+                            <tbody>
+                            <tr>
+                                <td data-label='name'>$name</td>
+                                <td data-label='Phone'>{$row['phone']}</td>
+                                <td data-label='Email'>{$row['email']}</td>
+                                <td data-label='Action'>
+                                <a href='./INCLUDES/ban.php?id=$id'><img src='./IMAGE/el_ban-circle.png' alt=''></a>
+                                <a href='./INCLUDES/delete-user.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                            </td>
+                            </tr>
+                        </tbody>";
+                        }
+                    }
+                }
+
+            echo "</table>";
+            ?>
         </main>
     </div>
 </body>

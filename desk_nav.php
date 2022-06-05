@@ -5,9 +5,9 @@
                         <img src="./IMAGE/logo2 1.png" alt="Logo">
                     </div>
                     <ul>
-                        <li><a href="index.php">HOME</a></li>
-                        <li><a href="services.php">OUR SERVICES</a></li>
-                        <li><a href="contact.php">CONTACT</a></li>
+                        <li class="<?php if($page == 'home'){echo 'active-link';}?>"><a href="index.php">HOME</a></li>
+                        <li class="<?php if($page == 'service'){echo 'active-link';}?>"><a href="services.php">OUR SERVICES</a></li>
+                        <li class="<?php if($page == 'contact'){echo 'active-link';}?>"><a href="contact.php">CONTACT</a></li>
                     </ul>
                 </div>
                 <div class="right-section">

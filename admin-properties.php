@@ -60,7 +60,7 @@
                 </p> 
             </div>
             <?php
-            $sql = "SELECT * FROM `house`";
+            $sql = "SELECT * FROM `house` ORDER BY `id` DESC";
             $rs = $conn->query($sql);
             echo "
             <table class='table'>
@@ -75,7 +75,7 @@
             if(isset($_GET['submit'])){
                 $type = $_GET['type'];
                 if($type == 'pending'){
-                    $sql = "SELECT * FROM `house` where status = 0";
+                    $sql = "SELECT * FROM `house` where status = 0 ORDER BY `id` DESC";
                     $res = $conn->query($sql);
                     if($res->num_rows > 0){
                         while($row = $res->fetch_assoc()){
@@ -84,7 +84,9 @@
                             echo "
                             <tbody>
                             <tr>
-                                <td data-label='name'>{$row['title']}</td>
+                                <td data-label='name'>
+                                <a href='detail.php?id=$id'>{$row['title']}</a>
+                                </td>
                                 <td data-label='type'>{$row['type']}</td>
                                 <td data-label='price'>{$row['price']}</td>
                                 <td data-label='location'>{$row['location']}</td>
@@ -102,7 +104,7 @@
                         ";
                     }
                 }else if($type == 'approved'){
-                    $sql = "SELECT * FROM `house` where status = 1";
+                    $sql = "SELECT * FROM `house` where status = 1 ORDER BY `id` DESC";
                     $res = $conn->query($sql);
                     if($res->num_rows > 0){
                         while($row = $res->fetch_assoc()){
@@ -111,7 +113,9 @@
                             echo "
                             <tbody>
                             <tr>
-                                <td data-label='name'>{$row['title']}</td>
+                            <td data-label='name'>
+                            <a href='detail.php?id=$id'>{$row['title']}</a>
+                            </td>
                                 <td data-label='type'>{$row['type']}</td>
                                 <td data-label='price'>{$row['price']}</td>
                                 <td data-label='location'>{$row['location']}</td>
@@ -127,6 +131,46 @@
                             <h1>No Approved Requests</h1>
                         ";
                     }
+                }else if($type == 'all'){
+                    if($rs-> num_rows > 0){
+                        while($row = $rs-> fetch_assoc()){
+                            $id = $row['id'];
+                            if($row['status'] == 0){
+                                $status = 'Pending';
+                                echo "
+                                <tbody>
+                                    <tr>
+                                    <td data-label='name'>
+                                    <a href='detail.php?id=$id'>{$row['title']}</a>
+                                    </td>
+                                        <td data-label='type'>{$row['type']}</td>
+                                        <td data-label='price'>{$row['price']}</td>
+                                        <td data-label='location'>{$row['location']}</td>
+                                        <td data-label='Status'>$status</td>
+                                        <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                                            <a href='./INCLUDES/approve.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
+                                        </td>
+                                    </tr>
+                                </tbody> ";
+                            }else{
+                                $status = 'Approved';
+                                echo "
+                                <tbody>
+                                    <tr>
+                                    <td data-label='name'>
+                                    <a href='detail.php?id=$id'>{$row['title']}</a>
+                                    </td>
+                                        <td data-label='type'>{$row['type']}</td>
+                                        <td data-label='price'>{$row['price']}</td>
+                                        <td data-label='location'>{$row['location']}</td>
+                                        <td data-label='Status'>$status</td>
+                                        <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
+                                        </td>
+                                    </tr>
+                                </tbody> ";
+                            }
+                        }
+                    }
                 }
             }else{
                 if($rs-> num_rows > 0){
@@ -137,7 +181,9 @@
                             echo "
                             <tbody>
                                 <tr>
-                                    <td data-label='name'>{$row['title']}</td>
+                                <td data-label='name'>
+                                <a href='detail.php?id=$id'>{$row['title']}</a>
+                                </td>
                                     <td data-label='type'>{$row['type']}</td>
                                     <td data-label='price'>{$row['price']}</td>
                                     <td data-label='location'>{$row['location']}</td>
@@ -152,7 +198,9 @@
                             echo "
                             <tbody>
                                 <tr>
-                                    <td data-label='name'>{$row['title']}</td>
+                                <td data-label='name'>
+                                <a href='detail.php?id=$id'>{$row['title']}</a>
+                                </td>
                                     <td data-label='type'>{$row['type']}</td>
                                     <td data-label='price'>{$row['price']}</td>
                                     <td data-label='location'>{$row['location']}</td>

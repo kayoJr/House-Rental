@@ -3,6 +3,7 @@
     <form action="./admin-properties.php" method="GET">
         <select name="type" id="type" required>
             <option value="" disabled selected>Type</option>
+            <option value="all">All</option>
             <option value="approved">Approved</option>
             <option value="pending">Pending</option>
         </select>

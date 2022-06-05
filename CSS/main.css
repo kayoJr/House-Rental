@@ -117,10 +117,10 @@ ul, a {
 }
 
 .houses .house img {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
   width: 24.75rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 20rem;
 }
 
 .houses .house .price {
@@ -198,6 +198,10 @@ footer {
   color: #080;
 }
 
+.active-link {
+  font-size: 1.5rem;
+}
+
 header nav .nav-items {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -241,7 +245,7 @@ header nav .nav-items .left-section ul li a {
 }
 
 header nav .nav-items .left-section ul li a:hover {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 header nav .nav-items .right-section {
@@ -765,7 +769,8 @@ header .sticky form select {
     color: #fff;
   }
   .desktop .search form input[type="number"],
-  .desktop .search form select {
+  .desktop .search form select,
+  .desktop .search form input[type="text"] {
     width: 100%;
     margin-right: 0rem;
   }
@@ -910,7 +915,7 @@ header .sticky form select {
     font-size: 1rem;
   }
   .login {
-    margin-bottom: 5rem;
+    margin-bottom: 15rem;
   }
   .login h1 {
     font-size: 1rem;
@@ -942,6 +947,15 @@ header .sticky form select {
   }
   footer {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 1367px) {
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -80,7 +80,7 @@ session_start();
                 </div>
                 <div>
                     <label for="phone">Phone</label>
-                    <input type="tel" name="phone" id="phone" required>
+                    <input type="number" name="phone" id="phone" required>
                 </div>
                 <div class="password">
                     <label for="password">Password</label>
@@ -97,7 +97,7 @@ session_start();
 
 <!-- ADD PAGINATION HERE -->
 
-<footer class="report-footer login-footer">
+<footer class="footer">
     <div class="container">
         <p>COPYRIGHT &copy; 2022 ALL RIGHTS RESERVED</p>
     </div>

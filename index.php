@@ -53,6 +53,7 @@
     </header>
     <header class="desktop">
         <?php
+            $page = 'home';
             include "desk_nav.php";
             include "search_bar.php";
         ?>

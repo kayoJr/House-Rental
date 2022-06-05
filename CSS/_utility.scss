@@ -124,8 +124,9 @@ ul,a{
             overflow-y: hidden;
             width: fit-content;
             img{
-                height: max-content;
                 width: 24.75rem;
+                object-fit: cover;
+                height: 20rem;
             }
             .price{
                 position: absolute;
@@ -191,4 +192,7 @@ footer{
     .success{
         color: #080;
     }
+}
+.active-link{
+    font-size: 1.5rem;
 }

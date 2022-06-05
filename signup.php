@@ -82,7 +82,7 @@ session_start();
                 </div>
                 <div>
                     <label for="phone">Phone</label>
-                    <input type="tel" name="phone" id="phone" required>
+                    <input type="number" name="phone" id="phone" required>
                 </div>
                 <div>
                     <label for="email">Email</label>

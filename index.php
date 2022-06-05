@@ -77,7 +77,7 @@
                             <div class='house'>
                                 <img src='./FILES/{$row['photo']}' alt='house'>
                                 <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
+                                    <p>{$row['price']}ETB/MO</p>
                                 </div>
                                 <div class='detail'>
                                     <p>{$row['title']}</p>
@@ -110,7 +110,7 @@
                             <div class='house'>
                                 <img src='./FILES/{$row['photo']}' alt='house'>
                                 <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
+                                    <p>{$row['price']}ETB/MO</p>
                                 </div>
                                 <div class='detail'>
                                     <p>{$row['title']}</p>
@@ -118,78 +118,7 @@
                                 </div>
                             </div>
                         </a>
-                            <a class = 'house-element' href='./detail.php?id=$id'>
-                            <div class='house'>
-                                <img src='./FILES/{$row['photo']}' alt='house'>
-                                <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
-                                </div>
-                                <div class='detail'>
-                                    <p>{$row['title']}</p>
-                                    <p>{$row['location']}</p>
-                                </div>
-                            </div>
-                        </a>
-                            <a class = 'house-element' href='./detail.php?id=$id'>
-                            <div class='house'>
-                                <img src='./FILES/{$row['photo']}' alt='house'>
-                                <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
-                                </div>
-                                <div class='detail'>
-                                    <p>{$row['title']}</p>
-                                    <p>{$row['location']}</p>
-                                </div>
-                            </div>
-                        </a>
-                            <a class = 'house-element' href='./detail.php?id=$id'>
-                            <div class='house'>
-                                <img src='./FILES/{$row['photo']}' alt='house'>
-                                <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
-                                </div>
-                                <div class='detail'>
-                                    <p>{$row['title']}</p>
-                                    <p>{$row['location']}</p>
-                                </div>
-                            </div>
-                        </a>
-                            <a class = 'house-element' href='./detail.php?id=$id'>
-                            <div class='house'>
-                                <img src='./FILES/{$row['photo']}' alt='house'>
-                                <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
-                                </div>
-                                <div class='detail'>
-                                    <p>{$row['title']}</p>
-                                    <p>{$row['location']}</p>
-                                </div>
-                            </div>
-                        </a>
-                            <a class = 'house-element' href='./detail.php?id=$id'>
-                            <div class='house'>
-                                <img src='./FILES/{$row['photo']}' alt='house'>
-                                <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
-                                </div>
-                                <div class='detail'>
-                                    <p>{$row['title']}</p>
-                                    <p>{$row['location']}</p>
-                                </div>
-                            </div>
-                        </a>
-                            <a class = 'house-element' href='./detail.php?id=$id'>
-                            <div class='house'>
-                                <img src='./FILES/{$row['photo']}' alt='house'>
-                                <div class='price'>
-                                    <p>{$row['price']}$/MO</p>
-                                </div>
-                                <div class='detail'>
-                                    <p>{$row['title']}</p>
-                                    <p>{$row['location']}</p>
-                                </div>
-                            </div>
-                        </a>
+
                             ";
                         }
                     }

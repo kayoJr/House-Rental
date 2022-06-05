@@ -21,9 +21,9 @@ require_once 'db.php';
         $owner = $_SESSION['user'];
         $status = 0;
         if($plan == 1){
-            $price = 20;
+            $plan_price = 20;
         }else if($plan == 2){
-            $price = 50;
+            $plan_price = 50;
         }
         $sql = "INSERT INTO `house` (`title`, `type`, `location`, `price`, `negotiable`, `room`, `area`, `photo`, `description`, `plan`, `status`, `owner`) 
         VALUES ('$title', '$type', '$location', $price, $negotiable, $room, $area, '$photo', '$desc', $plan, $status, $owner)";
@@ -32,7 +32,7 @@ require_once 'db.php';
         if($rs){
             if(move_uploaded_file($temp, $target)){
                 // header("Location: upload_resource.php?msg=Uploaded Successfully");
-                header("Location: ../MyPay/index.php?price=$price");
+                header("Location: ../MyPay/index.php?price=$plan_price");
             }else{
                 header("Location: ../post.php?msg=Uploaded Unsuccessfull");
                 echo "failed";

@@ -6,6 +6,7 @@ require_once 'db.php';
 //     exit(); 
 // }else{
     if(isset($_POST['submit'])){
+        $id = uniqid();
         $title = $_POST['title'];
         $type = $_POST['type'];
         $location = $_POST['location'];
@@ -25,14 +26,14 @@ require_once 'db.php';
         }else if($plan == 2){
             $plan_price = 50;
         }
-        $sql = "INSERT INTO `house` (`title`, `type`, `location`, `price`, `negotiable`, `room`, `area`, `photo`, `description`, `plan`, `status`, `owner`) 
-        VALUES ('$title', '$type', '$location', $price, $negotiable, $room, $area, '$photo', '$desc', $plan, $status, $owner)";
+        $sql = "INSERT INTO `house` (`id`, `title`, `type`, `location`, `price`, `negotiable`, `room`, `area`, `photo`, `description`, `plan`, `status`, `owner`) 
+        VALUES ('$id', '$title', '$type', '$location', $price, $negotiable, $room, $area, '$photo', '$desc', $plan, $status, $owner)";
 
         $rs = mysqli_query($conn, $sql);
         if($rs){
             if(move_uploaded_file($temp, $target)){
                 // header("Location: upload_resource.php?msg=Uploaded Successfully");
-                header("Location: ../MyPay/index.php?price=$plan_price");
+                header("Location: ../MyPay/index.php?id=$id");
             }else{
                 header("Location: ../post.php?msg=Uploaded Unsuccessfull");
                 echo "failed";

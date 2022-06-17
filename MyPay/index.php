@@ -1,6 +1,7 @@
 <?php
 $msg = " ";
-
+require 'connect.php';
+require '../INCLUDES/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,25 +20,43 @@ $msg = " ";
             <?php
                 @$msg = $_REQUEST['msg'];
                 echo $msg;
-                $price = $_REQUEST['price'];
-                echo $price;
+                $id = $_REQUEST['id'];
+               // echo $id;
             ?>
         </div>
         <?php
-        echo "
+        $sql = "SELECT * FROM `house` WHERE `id` = '$id'";
+        $rs = $conn->query($sql);
+        if($rs){
+            while($row = $rs->fetch_assoc()){
+                $price = 0;
+                if($row['plan'] == 1){
+                    $price = 20;
+                }else{
+                    $price = 50;
+                }
+        ?>
+              
+       
         <form action='login.php' id='book-form' method='POST'>
         <label for='phone'>Phone</label>
         <input type='tel' name='phone' id='phone'>
         <label for='password'>Password</label>
         <input type='password' name='password' id='password'>
-        <input type='hidden' name='plan' id='plan' value=$price style='display: '>
+        <input type='hidden' name='plan' id='plan' value=<?php echo $price; ?> style='display: '>
         <p class='forget'>Forget Password?</p>
         <input type='submit' value='Login' name='submit'>
            <div class='newAcc'>
                 <a href='signup.php'>Create an account</a>
            </div>
+        <input type="text" name="id" id="id" value="<?php echo $id; ?>" style="display: none;">
         </form>
-        "
+        
+        <?php
+    }
+}else{
+    echo mysqli_error($con);
+}
         ?>
     
     </div>

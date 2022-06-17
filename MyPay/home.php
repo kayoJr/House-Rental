@@ -1,9 +1,10 @@
 <?php
 require 'auth.php';
 require 'login.php';
+require '../INCLUDES/db.php';
 $phone = $_SESSION['user'];
 $sql = "SELECT * FROM `users` where `phone` = '$phone'";
-$rs = mysqli_query($conn, $sql);
+$rs = mysqli_query($con, $sql);
 if(mysqli_num_rows($rs)>0){
     while($row = mysqli_fetch_assoc($rs)){
         $name = $row['fname'];
@@ -106,14 +107,32 @@ if(mysqli_num_rows($rs)>0){
                     </h3>
                 </div>
                 <?php
-                    @$price = $_REQUEST['price'];
+                    @$id = $_REQUEST['id'];
+                    $sql = "SELECT * FROM `house` WHERE `id` = '$id'";
+                    $res = $conn->query($sql);
+                    if($res){
+                        while($row = $res->fetch_assoc()){
+                            $price = 0;
+                            if($row['plan'] = 1){
+                                $price = 20;
+                            }else{
+                                $price = 50;
+                            }
+                        }
+                    
                 ?>
                 <label for="phone">Reciever Phone</label>
                 <input type="number" name="phone" id="phone"value="0953565269" readonly>
                 <label for="amount">Amount</label>
                 <input type="number" name="amount" id="amount" value="<?php echo $price ?>" readonly>
+                <input type="text" name="id" id="id" value="<?php echo $id ?>" style="display: none;">
                 <input type="submit" value="Send" name="submit">
             </form>
+            <?php
+}else{
+    echo mysqli_error($conn);
+}
+            ?>
         </div>
     </div>
     <script src="./app.js"></script>

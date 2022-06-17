@@ -1,14 +1,16 @@
 <?php
 require 'connect.php';
+require '../INCLUDES/db.php';
 session_start();
 
 if(isset($_POST['submit'])){
     $rec_phone = $_POST['phone'];
     $amount = $_POST['amount'];
     $phone = $_SESSION['user'];
+    $id = $_POST['id'];
 
     $find = "SELECT * FROM `users` where `phone` = '$rec_phone'";
-    $rs = mysqli_query($conn, $find);
+    $rs = mysqli_query($con, $find);
     if(mysqli_num_rows($rs) > 0){
         while($row = mysqli_fetch_assoc($rs)){
             $reciever = $row['phone'];
@@ -17,7 +19,7 @@ if(isset($_POST['submit'])){
                 header("Location:home.php?msg=You can't send money to yourself");
             }else{
                 $sql = "SELECT * FROM `users` where `phone` = '$phone'";
-                $res = mysqli_query($conn, $sql);
+                $res = mysqli_query($con, $sql);
                 if(mysqli_num_rows($res) > 0){
                     while($row2=mysqli_fetch_assoc($res)){
                         $sender_amount = $row2['deposit'];
@@ -28,12 +30,19 @@ if(isset($_POST['submit'])){
                             $new_send_amt = $sender_amount - $amount;
                             
                             $upd_rec = "UPDATE `users` set `deposit` = '$new_rec_amt' where `phone` = '$reciever'";
-                            $result = mysqli_query($conn, $upd_rec);
+                            $result = mysqli_query($con, $upd_rec);
                             if($result){
                                 $upd_send = "UPDATE `users` set `deposit` = '$new_send_amt' where `phone` = '$phone'";
-                                $result2 = mysqli_query($conn, $upd_send);
+                                $result2 = mysqli_query($con, $upd_send);
                                 if($result2){
-                                    header("Location:../post.php?msg=Transaction successfully done. the admin will approve your request");
+                                    $update = "UPDATE `house` SET `payment` = 1 WHERE `id` = '$id'";
+                                    $update_res = $conn->query($update);
+                                    if($update_res){
+                                        header("Location:../post.php?msg=Transaction successfully done. the admin will approve your request");
+                                    }else{
+                                        echo mysqli_error($con);
+                                        echo mysqli_error($conn);
+                                    }
                                 }
                             }else{
                                 echo 'error';

@@ -4,9 +4,9 @@ $user = "root";
 $password = "";
 $db = "myPay";
 
-$conn = mysqli_connect($server, $user, $password, $db);
+$con = mysqli_connect($server, $user, $password, $db);
 
-if(!$conn){
+if(!$con){
     echo "db error";
 }
 

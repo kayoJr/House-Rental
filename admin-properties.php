@@ -71,6 +71,7 @@
                     <th>Location</th>
                     <th>Status</th>
                     <th>Action</th>
+                    <th>Payment</th>
                 </thead>";
             if(isset($_GET['submit'])){
                 $type = $_GET['type'];
@@ -79,6 +80,12 @@
                     $res = $conn->query($sql);
                     if($res->num_rows > 0){
                         while($row = $res->fetch_assoc()){
+                            $payment = 0;
+                            if($row['payment']== 1){
+                            $payment = "Done";
+                            }else{
+                            $payment = "Pending";
+                        }
                             $status = 'Pending';
                             $id = $row['id'];
                             echo "
@@ -92,8 +99,9 @@
                                 <td data-label='location'>{$row['location']}</td>
                                 <td data-label='Status'>$status</td>
                                 <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
-                                    <a href='./INCLUDES/approve.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
+                                <a href='./INCLUDES/approve.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
                                 </td>
+                                <td data-label='payment'>$payment</td>
                             </tr>
                         </tbody>
                             ";
@@ -108,6 +116,12 @@
                     $res = $conn->query($sql);
                     if($res->num_rows > 0){
                         while($row = $res->fetch_assoc()){
+                            $payment = 0;
+                            if($row['payment']== 1){
+                            $payment = "Done";
+                            }else{
+                            $payment = "Pending";
+                            }
                             $status = 'Approved';
                             $id = $row['id'];
                             echo "
@@ -122,6 +136,7 @@
                                 <td data-label='Status'>$status</td>
                                 <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
                                 </td>
+                                <td data-label='payment'>$payment</td>
                             </tr>
                         </tbody>
                             ";
@@ -134,6 +149,12 @@
                 }else if($type == 'all'){
                     if($rs-> num_rows > 0){
                         while($row = $rs-> fetch_assoc()){
+                            $payment = 0;
+                            if($row['payment']== 1){
+                            $payment = "Done";
+                            }else{
+                            $payment = "Pending";
+                            }
                             $id = $row['id'];
                             if($row['status'] == 0){
                                 $status = 'Pending';
@@ -150,6 +171,7 @@
                                         <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
                                             <a href='./INCLUDES/approve.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
                                         </td>
+                                        <td data-label='payment'>$payment</td>
                                     </tr>
                                 </tbody> ";
                             }else{
@@ -166,6 +188,7 @@
                                         <td data-label='Status'>$status</td>
                                         <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
                                         </td>
+                                        <td data-label='payment'>$payment</td>
                                     </tr>
                                 </tbody> ";
                             }
@@ -173,8 +196,15 @@
                     }
                 }
             }else{
+
                 if($rs-> num_rows > 0){
                     while($row = $rs-> fetch_assoc()){
+                        $payment = 0;
+                        if($row['payment']== 1){
+                            $payment = "Done";
+                        }else{
+                            $payment = "Pending";
+                        }
                         $id = $row['id'];
                         if($row['status'] == 0){
                             $status = 'Pending';
@@ -191,6 +221,7 @@
                                     <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
                                         <a href='./INCLUDES/approve.php?id=$id'><img src='./IMAGE/akar-icons_circle-check-fill.png' alt=''></a>
                                     </td>
+                                    <td data-label='payment'>$payment</td>
                                 </tr>
                             </tbody> ";
                         }else{
@@ -207,6 +238,7 @@
                                     <td data-label='Status'>$status</td>
                                     <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a>
                                     </td>
+                                    <td data-label='payment'>$payment</td>
                                 </tr>
                             </tbody> ";
                         }

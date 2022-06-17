@@ -1,4 +1,5 @@
 <?php
+/* A PHP code that is used to login a user. */
 require_once "db.php";
 session_start();
 global $conn;
@@ -9,6 +10,7 @@ if(isset($_POST['login'])){
     $sql = "SELECT * FROM `users` WHERE phone='$phone' AND pass='$password'";
     $result = $conn->query($sql);
 
+/* Checking if the user is an admin or not. */
     if($result -> num_rows > 0 ){
         $_SESSION['user'] = $phone;
         $sql = "SELECT `status` FROM `users` WHERE phone='$phone'";

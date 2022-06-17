@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
     $deposit = $_POST['deposit'];
 
     $sql = "INSERT INTO `users`(`fname`, `lname`, `phone`, `password`, `deposit`) VALUES ('$fname', '$lname', '$phone', '$password', '$deposit')";
-    $query = mysqli_query($conn, $sql);
+    $query = mysqli_query($con, $sql);
     if($query){
         header("Location:signup.php?msg=Account Successfully Created");
     }else{

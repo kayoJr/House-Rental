@@ -1,5 +1,6 @@
 <?php
     require "./INCLUDES/db.php";
+    include_once ('./date.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

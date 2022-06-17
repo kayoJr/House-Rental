@@ -63,7 +63,7 @@
     <section class="details">
         <div class="container">
             <?php
-                $sql = "SELECT * FROM `house` WHERE `id` = $id";
+                $sql = "SELECT * FROM `house` WHERE `id` = '$id'";
                 $res = $conn->query($sql);
                 if($res->num_rows > 0){
                     while($row = $res -> fetch_assoc()){
@@ -110,7 +110,7 @@
                                 <div class='social'>
                                     <a href='https://wa.me/$whatsapp' class='whatsapp'><img src='./IMAGE/akar-icons_whatsapp-fill.png' alt='whatsapp'> whatsapp</a>
                                     <a href='https://telegram.me/$telegram' class='telegram'><img src='./IMAGE/cib_telegram-plane.png' alt='telegram'> Telegram</a>
-                                    <a href='#' class='phone'><img src='./IMAGE/carbon_phone-filled.png' alt='phone'> $phone</a>
+                                    <a href='tel:$phone' class='phone'><img src='./IMAGE/carbon_phone-filled.png' alt='phone'> $phone</a>
                         
                                 </div>
                                 <div class='txt-bg'>

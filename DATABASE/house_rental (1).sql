@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2022 at 10:44 AM
+-- Generation Time: Jun 22, 2022 at 09:26 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `house` (
-  `id` int(50) NOT NULL,
+  `id` varchar(50) NOT NULL,
   `title` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
   `location` varchar(50) NOT NULL,
@@ -41,16 +41,17 @@ CREATE TABLE `house` (
   `description` varchar(500) NOT NULL,
   `plan` int(50) NOT NULL,
   `status` int(50) NOT NULL,
-  `owner` varchar(50) NOT NULL
+  `owner` varchar(50) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `payment` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `house`
 --
 
-INSERT INTO `house` (`id`, `title`, `type`, `location`, `price`, `negotiable`, `room`, `area`, `photo`, `description`, `plan`, `status`, `owner`) VALUES
-(2, 'test', 'apartment', 'jigjiga', 50, 1, 5, 500, 'house.png', 'this is test', 2, 1, '0905611207'),
-(4, 'test 2', 'Apartment', 'jigjiga', 20, 1, 6, 444, 'unsplash_2gDwlIim3Uw.png', 'another test', 1, 0, '0953565269');
+INSERT INTO `house` (`id`, `title`, `type`, `location`, `price`, `negotiable`, `room`, `area`, `photo`, `description`, `plan`, `status`, `owner`, `date`, `payment`) VALUES
+('106251789', 'ajfd', 'apartment', 'kdjfkdfj', 45454, 1, 4, 455, 'unsplash_2gDwlIim3Uw.png', 'adsfasdf', 1, 1, '905611207', '2022-06-17', 1);
 
 -- --------------------------------------------------------
 
@@ -97,12 +98,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `house`
---
-ALTER TABLE `house`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

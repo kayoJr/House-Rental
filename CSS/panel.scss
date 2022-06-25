@@ -9,6 +9,9 @@
     grid-gap: 2rem;
     position: relative;
 }
+#hamPanel, #closePanel{
+    display: none;
+}
 aside{
     background-color: $dark-grey;
     position: sticky;
@@ -44,6 +47,10 @@ main{
         padding: 2rem;
         text-transform: uppercase;
         margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 3rem;
     }
     .form{
         width: fit-content;
@@ -90,4 +97,39 @@ main{
     }
 }
 
-
+@media (max-width: 475px){
+    aside{
+        height: max-content;
+        position: relative;
+        .logo{
+            margin: 1rem;
+        }
+        ul{
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            li{
+                margin: .5rem 0;
+                padding: .5rem 0;
+            }
+        }
+    }
+    .panel{
+        grid-template-columns: 1fr;
+    }
+    main{
+            .form{
+                .form-elements{
+                    grid-template-columns: 1fr;
+                    padding: 2rem;
+                }
+            }
+    }
+    #hamPanel, #closePanel{
+        display: block;
+        z-index: 100;
+    }
+    .mobile{
+        display: block;
+    }
+}

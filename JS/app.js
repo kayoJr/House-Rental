@@ -34,3 +34,4 @@ ham.addEventListener("click", ()=>{
 avatar.addEventListener("click", ()=>{
     second_navbar.style.display = 'block';
 })
+

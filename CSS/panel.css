@@ -480,6 +480,10 @@ footer {
   position: relative;
 }
 
+#hamPanel, #closePanel {
+  display: none;
+}
+
 aside {
   background-color: #5B5B5B;
   position: -webkit-sticky;
@@ -521,6 +525,16 @@ main .top {
   padding: 2rem;
   text-transform: uppercase;
   margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 3rem;
 }
 
 main .form {
@@ -577,5 +591,44 @@ main .txt-bg {
 main .location input,
 main .price input {
   width: 100%;
+}
+
+@media (max-width: 475px) {
+  aside {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    position: relative;
+  }
+  aside .logo {
+    margin: 1rem;
+  }
+  aside ul {
+    margin: 1rem 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  aside ul li {
+    margin: .5rem 0;
+    padding: .5rem 0;
+  }
+  .panel {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  main .form .form-elements {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+  #hamPanel, #closePanel {
+    display: block;
+    z-index: 100;
+  }
+  .mobile {
+    display: block;
+  }
 }
 /*# sourceMappingURL=panel.css.map */

@@ -23,7 +23,7 @@
 
 <body>
     <div class="panel">
-        <aside>
+        <aside id="mobile">
             <div class="logo">
                 <img src="./IMAGE/logo2 1.png" alt="logo">
             </div>
@@ -37,6 +37,7 @@
         </aside>
         <main>
             <div class="top">
+                <!-- <img src="./IMAGE/ant-design_menu-outlined.png" alt="" id="hamPanel"> -->
                 <h1>My Profile</h1>
             </div>
             <form action="./INCLUDES/update.php" method="POST" class="form">
@@ -99,6 +100,7 @@
             </form>
         </main>
     </div>
+    <!-- <script src="./JS/panel.js"></script> -->
 </body>
 
 </html>

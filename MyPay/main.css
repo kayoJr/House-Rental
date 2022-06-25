@@ -90,6 +90,7 @@ body {
   display: -ms-grid;
   display: grid;
   place-items: center;
+  margin-bottom: 0;
 }
 
 .container .main .boxes {
@@ -138,7 +139,7 @@ body {
 }
 
 .container .forms {
-  margin-top: 5rem;
+  margin-top: 1rem;
   display: -ms-grid;
   display: grid;
   place-items: center;

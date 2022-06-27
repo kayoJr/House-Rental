@@ -113,7 +113,7 @@ if(mysqli_num_rows($rs)>0){
                     if($res){
                         while($row = $res->fetch_assoc()){
                             $price = 0;
-                            if($row['plan'] = 1){
+                            if($row['plan'] == 1){
                                 $price = 20;
                             }else{
                                 $price = 50;

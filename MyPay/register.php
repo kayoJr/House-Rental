@@ -11,7 +11,12 @@ if(isset($_POST['submit'])){
     $sql = "INSERT INTO `users`(`fname`, `lname`, `phone`, `password`, `deposit`) VALUES ('$fname', '$lname', '$phone', '$password', '$deposit')";
     $query = mysqli_query($con, $sql);
     if($query){
-        header("Location:signup.php?msg=Account Successfully Created");
+        echo "
+            <script>
+                alert('Registerd Successfully');
+                window.close();
+            </script>
+        ";
     }else{
         echo "not added".$sql;
     }

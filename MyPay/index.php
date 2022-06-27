@@ -47,7 +47,7 @@ require '../INCLUDES/db.php';
         <p class='forget'>Forget Password?</p>
         <input type='submit' value='Login' name='submit'>
            <div class='newAcc'>
-                <a href='signup.php'>Create an account</a>
+                <a href='signup.php' target="_blank">Create an account</a>
            </div>
         <input type="text" name="id" id="id" value="<?php echo $id; ?>" style="display: none;">
         </form>

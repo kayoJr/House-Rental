@@ -89,11 +89,11 @@
                         <div class="top">
                             <div>
                                 <label for="room">Rooms</label>
-                                <input type="number" name="room" id="room">
+                                <input type="number" min="0" name="room" id="room">
                             </div>
                             <div>
                                 <label for="area">Area in M<sup>2</sup></label>
-                                <input type="number" name="area" id="area">
+                                <input type="number" min="0" name="area" id="area">
                             </div>
                             <div>
                                 <label for="photo">Photos</label>

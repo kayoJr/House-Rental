@@ -84,7 +84,7 @@ require "./INCLUDES/db.php";
                 echo "
                 <a href='./detail.php?id=$id'>
                 <div class='house'>
-                    <img src='./IMAGE/$photo' alt='house'>
+                    <img src='./FILES/$photo' alt='house'>
                     <div class='price'>
                         <p>{$row['price']}$/MO</p>
                     </div>

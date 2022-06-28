@@ -95,7 +95,7 @@
                     </div>
                     <div class='image-personal'>
                         <div class='image'>
-                            <img src='./IMAGE/{$row['photo']}' alt='house'>
+                            <img src='./FILES/{$row['photo']}' alt='house'>
                         </div>
                             <div class='personal'>
                                 <div class='top'>

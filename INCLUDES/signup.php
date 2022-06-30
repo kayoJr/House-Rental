@@ -10,7 +10,7 @@ if(isset($_POST['signup'])){
     $email = $_POST['email'];
     $recover = $_POST['secret'];
     $pass = md5($_POST['pass']);
-    $conf_pass = $_POST['conf-pass'];
+    $conf_pass = md5($_POST['conf-pass']);
 
     if($pass !== $conf_pass){
         header("Location: ../signup.php?msg=Passwords Doesn't Match");

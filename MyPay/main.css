@@ -7,11 +7,25 @@
 }
 
 body {
-  background: -webkit-gradient(linear, left top, right top, from(#82a0fd), to(#db82eb)) no-repeat;
-  background: linear-gradient(to right, #82a0fd, #db82eb) no-repeat;
+  background: -webkit-gradient(linear, left top, right top, from(#185a9d), to(#43cea2)) no-repeat;
+  background: linear-gradient(to right, #185a9d, #43cea2) no-repeat;
   height: 100vh;
   overflow: hidden;
   width: 100vw;
+  position: relative;
+}
+
+.text {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  width: 100%;
+  height: 100vh;
+}
+
+.text h1 {
+  color: #fff;
+  font-size: 12rem;
 }
 
 .container {
@@ -209,7 +223,7 @@ body {
   padding: .8rem;
   border-radius: 5px;
   border: none;
-  background: #4271ff;
+  background: #185a9d;
   color: #fff;
   font-size: 1.5rem;
   -webkit-transition: all .3s ease;
@@ -218,7 +232,7 @@ body {
 }
 
 .container .forms form input[type='submit']:hover {
-  background: #d64cee;
+  background: #43cea2;
 }
 
 @media (max-width: 767px) {

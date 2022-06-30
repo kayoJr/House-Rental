@@ -8,7 +8,8 @@ if(isset($_POST['signup'])){
     $lname = $_POST['lname'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
-    $pass = $_POST['pass'];
+    $recover = $_POST['secret'];
+    $pass = md5($_POST['pass']);
     $conf_pass = $_POST['conf-pass'];
 
     if($pass !== $conf_pass){
@@ -22,8 +23,8 @@ if(isset($_POST['signup'])){
                 if($phone == $existing_phone){
                     header("Location: ../signup.php?msg=Phone Number exists. please login instead");
                 }else{
-                    $sql = "INSERT INTO `users`(`fname`, `lname`, `phone`, `email`, `pass`) 
-                    VALUES ('$fname','$lname','$phone','$email','$pass')";
+                    $sql = "INSERT INTO `users`(`fname`, `lname`, `phone`, `email`, `pass`, `secret`) 
+                    VALUES ('$fname','$lname','$phone','$email','$pass', '$recover')";
                     $res = $conn->query($sql);
                     if($res){
                         header("Location: ../login.php?msg=You Can Now Login in");

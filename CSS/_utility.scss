@@ -69,6 +69,16 @@ ul,a{
         padding: .5rem 0;
         display: block;
     }
+    .witness{
+        position: relative;
+    }
+    #show{
+        width: 4%;
+        cursor: pointer;
+        position: absolute;
+        right: 1rem;
+        top: .8rem;
+    }
     label{
         font-size: 1.2rem;
     }

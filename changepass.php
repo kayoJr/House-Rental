@@ -60,8 +60,8 @@ session_start();
 
     <section class="login">
         <div class="container">
-        <form action="./INCLUDES/login.php" class="cont-repo" method="POST">
-            <div class="feedback">
+        <form action="./INCLUDES/changepass.php" class="cont-repo" method="POST">
+        <div class="feedback">
             <p class="success">   
                 <?php 
                 $msg = @$_REQUEST['msg'];
@@ -76,18 +76,24 @@ session_start();
                 </p> 
             </div>
                 <div class="txt-bg">
-                    <h1>LOGIN TO CREATE LISTING</h1>
+                    <h1>Creat New Password</h1>
                 </div>
                 <div>
                     <label for="phone">Phone</label>
                     <input type="number" name="phone" id="phone" required>
                 </div>
-                <div class="password">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required>
-                    <a href="./forget.php">Forget Password?</a>
+                <div>
+                    <label for="pass">Password</label>
+                    <div class="witness">
+                        <input type="password" name="pass" id="pass" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required>
+                        <img src="./IMAGE/witness.png" id="show" alt="">
+                    </div>
                 </div>
-                <input type="submit" value="Login" class="btn" name="login">
+                <div>
+                    <label for="conf-pass">Confirm Password</label>
+                    <input type="password" name="conf-pass" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" id="conf-pass">
+                </div>
+                <input type="submit" value="Update" class="btn" name="passbtn">
                 <a href="signup.php" class="btn-secondary">Create Account</a>
             </div>
         </form>

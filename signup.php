@@ -74,15 +74,18 @@ session_start();
                 </div>
                 <div>
                     <label for="fname">First Name</label>
-                    <input type="text" name="fname" id="fname" required>
+                    <input type="text" name="fname" id="fname" pattern="[a-zA-Z]+" required>
                 </div>
                 <div>
                     <label for="lname">Last Name</label>
-                    <input type="text" name="lname" id="lname" required>
+                    <input type="text" name="lname" id="lname" pattern="[A-Za-z]+" required>
                 </div>
                 <div>
                     <label for="phone">Phone</label>
-                    <input type="number" name="phone" id="phone" required>
+                    <input type="number" name="phone" 
+                    oninput="javascript: if (this.value.length > this.maxLength) 
+                        this.value = this.value.slice(0, this.maxLength);"
+                    min="0" id="phone" maxlength="10" required>
                 </div>
                 <div>
                     <label for="email">Email</label>
@@ -90,11 +93,18 @@ session_start();
                 </div>
                 <div>
                     <label for="pass">Password</label>
-                    <input type="password" name="pass" id="pass" required>
+                    <div class="witness">
+                        <input type="password" name="pass" id="pass" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required>
+                        <img src="./IMAGE/witness.png" id="show" alt="">
+                    </div>
                 </div>
                 <div>
                     <label for="conf-pass">Confirm Password</label>
-                    <input type="password" name="conf-pass" id="conf-pass">
+                    <input type="password" name="conf-pass" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" id="conf-pass">
+                </div>
+                <div>
+                    <label for="secret">Recovery Code</label>
+                    <input type="text" name="secret" id="secret">
                 </div>
                 <input type="submit" value="Sign Up" name="signup" class="btn">
                 <a href="login.php" class="btn-secondary">Login</a>
@@ -105,7 +115,7 @@ session_start();
 
 
 <!-- ADD PAGINATION HERE -->
-
+<div id="demo"></div>
 <footer >
     <div class="container">
         <p>COPYRIGHT &copy; 2022 ALL RIGHTS RESERVED</p>

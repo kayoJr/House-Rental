@@ -16,6 +16,8 @@ var menu = document.getElementById('menu');
 var avatar = document.getElementById('avatar');
 var close = document.querySelectorAll('.close');
 var second_navbar = document.getElementById('second-nav');
+var show = document.getElementById('show');
+var pass = document.getElementById('pass');
 
 ham.addEventListener("click", ()=>{
         menu.style.display = "block"
@@ -35,3 +37,10 @@ avatar.addEventListener("click", ()=>{
     second_navbar.style.display = 'block';
 })
 
+show.addEventListener('click', () =>{
+    if(pass.type === "password"){
+        pass.type = "text";
+    }else{
+        pass.type = "password";
+    }
+})

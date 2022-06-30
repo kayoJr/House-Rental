@@ -60,7 +60,7 @@ session_start();
 
     <section class="login">
         <div class="container">
-        <form action="./INCLUDES/login.php" class="cont-repo" method="POST">
+        <form action="./INCLUDES/forget.php" class="cont-repo" method="POST">
             <div class="feedback">
             <p class="success">   
                 <?php 
@@ -76,18 +76,17 @@ session_start();
                 </p> 
             </div>
                 <div class="txt-bg">
-                    <h1>LOGIN TO CREATE LISTING</h1>
+                    <h1>Reset Your Password</h1>
                 </div>
                 <div>
                     <label for="phone">Phone</label>
                     <input type="number" name="phone" id="phone" required>
                 </div>
                 <div class="password">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required>
-                    <a href="./forget.php">Forget Password?</a>
+                    <label for="secret">Recovery Code</label>
+                    <input type="text" name="secret" id="secret" required>
                 </div>
-                <input type="submit" value="Login" class="btn" name="login">
+                <input type="submit" value="Reset" class="btn" name="secretbtn">
                 <a href="signup.php" class="btn-secondary">Create Account</a>
             </div>
         </form>

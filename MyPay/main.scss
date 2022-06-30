@@ -5,10 +5,22 @@
     font-family: montserrat;
 }
 body{
-    background: linear-gradient(to right, #82a0fd, #db82eb) no-repeat;
+    background: linear-gradient(to right, #185a9d, #43cea2) no-repeat;
     height: 100vh;
     overflow: hidden;
     width: 100vw;
+    position: relative;
+}
+.text{
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    width: 100%;
+    height: 100vh;
+    h1{
+        color: #fff;
+        font-size: 12rem;
+    }
 }
 .container{
     width: 90%;
@@ -147,13 +159,13 @@ body{
                 padding: .8rem;
                 border-radius: 5px;
                 border: none;
-                background: #4271ff;
+                background: #185a9d;
                 color: #fff;
                 font-size: 1.5rem;
                 transition: all .3s ease;
                 cursor: pointer;
                 &:hover{
-                    background: #d64cee;
+                    background: #43cea2;
                 }
             }
         }

@@ -5,7 +5,7 @@ session_start();
 global $conn;
 if(isset($_POST['login'])){
     $phone = $_POST['phone'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
 
     $sql = "SELECT * FROM `users` WHERE phone='$phone' AND pass='$password'";
     $result = $conn->query($sql);

@@ -25,6 +25,9 @@ if(mysqli_num_rows($rs)>0){
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <!-- <div class="text">
+        <h1>SAMPLE <br> PAYMENT <br>  METHOD</h1>
+    </div> -->
     <div class="container">
         <div class="header">
             <div class="logo">
@@ -47,15 +50,15 @@ if(mysqli_num_rows($rs)>0){
         </div>
         <div class="main">
             <div class="boxes">
-                <div class="box" id="btnDepo">
+                <!-- <div class="box" id="btnDepo">
                     <button >Deposit</button>
                 </div>
                 <div class="box" id="btnWithdraw">
                     <button >Withdraw</button>
-                </div>
+                </div> 
                 <div class="box" id="btnSend">
                     <button >Send</button>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="forms">

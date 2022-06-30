@@ -12,8 +12,8 @@
 }
 
 body {
-  background: -webkit-gradient(linear, left top, right top, from(#82a0fd), to(#db82eb)) no-repeat;
-  background: linear-gradient(to right, #82a0fd, #db82eb) no-repeat;
+  background: -webkit-gradient(linear, left top, right top, from(#185a9d), to(#43cea2)) no-repeat;
+  background: linear-gradient(to right, #185a9d, #43cea2) no-repeat;
   height: 100vh;
 }
 
@@ -39,7 +39,7 @@ body {
 .container h1 {
   padding-bottom: 1rem;
   text-align: center;
-  color: #0037FF;
+  color: #185a9d;
 }
 
 .container span a {
@@ -86,7 +86,7 @@ body {
 .container input[type='submit'] {
   margin: 1rem 0;
   border: none;
-  background: #4271ff;
+  background: #185a9d;
   color: #fff;
   font-size: 1.5rem;
   -webkit-transition: all .3s ease;
@@ -95,7 +95,7 @@ body {
 }
 
 .container input[type='submit']:hover {
-  background: #d64cee;
+  background: #43cea2;
 }
 
 .small {
@@ -115,7 +115,7 @@ body {
           backdrop-filter: blur(5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: #d64cee;
+  background: #43cea2;
 }
 
 .small2 {
@@ -140,7 +140,7 @@ body {
           backdrop-filter: blur(5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: #4271ff;
+  background: #185a9d;
 }
 
 .circle {
@@ -160,7 +160,7 @@ body {
           backdrop-filter: blur(5px);
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: #4271ffde;
+  background: #185a9d;
 }
 
 @media (max-width: 700px) {

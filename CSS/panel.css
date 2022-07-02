@@ -183,6 +183,10 @@ footer {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: none;
 }
 
 .search-admin {
@@ -399,6 +403,10 @@ footer {
   text-align: center;
   color: #fff;
   font-size: 1.2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: none;
 }
 
 .search-admin {

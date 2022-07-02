@@ -64,7 +64,7 @@
                             while($row = mysqli_fetch_assoc($res)){
                                 $fname = $row['fname'];
                                 $lname = $row['lname'];
-                                $phone = $row['phone'];
+                                $pass = $row['pass'];
                                 $email = $row['email'];
                                 $whatsapp = $row['whatsapp'];
                                 $telegram = $row['telegram'];
@@ -80,8 +80,9 @@
                         <input type="text" name="lname" id="lname" required placeholder="<?php echo $lname ?>">
                     </div>
                     <div>
-                        <label for="phone">Phone</label>
-                        <input type="tel" name="phone" id="phone" required placeholder="<?php echo $phone ?>">
+                        <label for="pass">New Password</label>
+                        <input type="password" name="pass"
+                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" id="pass">
                     </div>
                     <div>
                         <label for="email">Email</label>

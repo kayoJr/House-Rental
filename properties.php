@@ -82,7 +82,9 @@
                         echo "
                         <tbody>
                             <tr>
-                                <td data-label='name'>{$row['title']}</td>
+                            <td data-label='name'>
+                            <a href='detail.php?id=$id'>{$row['title']}</a>
+                            </td>
                                 <td data-label='Price'>{$row['price']}</td>
                                 <td data-label='Location'>{$row['location']}</td>
                                 <td data-label='Status'>$status</td>

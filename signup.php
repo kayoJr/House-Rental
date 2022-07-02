@@ -100,7 +100,8 @@ session_start();
                 </div>
                 <div>
                     <label for="conf-pass">Confirm Password</label>
-                    <input type="password" name="conf-pass" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" id="conf-pass">
+                    <input type="password" name="conf-pass"
+                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" id="conf-pass">
                 </div>
                 <div>
                     <label for="secret">Recovery Code</label>

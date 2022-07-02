@@ -5,7 +5,7 @@
     if(isset($_POST['update'])){
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
-        $phone = $_POST['phone'];
+        $pass = md5($_POST['pass']);
         $email = $_POST['email'];
         $whatsapp = $_POST['whatsapp'];
         $telegram = $_POST['telegram'];
@@ -18,7 +18,7 @@
                 $id = $row['id'];
             
         $sql = "UPDATE `users` SET `fname`='$fname',
-        `lname`='$lname',`phone`='$phone',
+        `lname`='$lname',`pass`='$pass',
         `email`='$email',`whatsapp`='$whatsapp',
         `telegram`='$telegram' WHERE `id` = $id ";
         $res = $conn->query($sql);

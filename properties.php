@@ -89,7 +89,7 @@
                                 <td data-label='Location'>{$row['location']}</td>
                                 <td data-label='Status'>$status</td>
                                 <td data-label='Plan'>$plan_type</td>
-                                <td data-label='Action'><a href='./INCLUDES/delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a></td>
+                                <td data-label='Action'><a href='./INCLUDES/user-delete.php?id=$id'><img src='./IMAGE/fluent_delete-20-filled.png' alt=''></a></td>
                             </tr>
                         </tbody>
                         ";

@@ -7,9 +7,9 @@ $id = $_GET['id'];
 $sql = "DELETE FROM `house` WHERE `id` = '$id'";
 $res = $conn->query($sql);
 if($res){
-    header("Location: ../admin-properties.php?msg=Deleted");
+    header("Location: ../properties.php?msg=Deleted");
 }else{
-    header("Location: ../admin-properties.php?err=Failed to Delete");
+    header("Location: ../properties.php?err=Failed to Delete");
 }
 
 ?> 

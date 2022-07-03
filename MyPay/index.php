@@ -31,9 +31,9 @@ require '../INCLUDES/db.php';
             while($row = $rs->fetch_assoc()){
                 $price = 0;
                 if($row['plan'] == 1){
-                    $price = 20;
+                    $price = 80;
                 }else{
-                    $price = 50;
+                    $price = 150;
                 }
         ?>
               

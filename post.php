@@ -111,8 +111,8 @@
                     <div class="plan">
                         <label for="plan">Posting Plan</label>
                         <select name="plan" id="plan">
-                            <option value="1">Basic 20ETB</option>
-                            <option value="2">Premium 50ETB</option>
+                            <option value="1">Basic 80ETB</option>
+                            <option value="2">Premium 150ETB</option>
                         </select>
                     </div>
                     <p>Read about posting plans <a href="./services.php">Here</a></p>

@@ -22,9 +22,9 @@ require_once 'db.php';
         $owner = $_SESSION['user'];
         $status = 0;
         if($plan == 1){
-            $plan_price = 20;
+            $plan_price = 80;
         }else if($plan == 2){
-            $plan_price = 50;
+            $plan_price = 150;
         }
         $sql = "INSERT INTO `house` (`id`, `title`, `type`, `location`, `price`, `negotiable`, `room`, `area`, `photo`, `description`, `plan`, `status`, `owner`) 
         VALUES ('$id', '$title', '$type', '$location', $price, $negotiable, $room, $area, '$photo', '$desc', $plan, $status, $owner)";
